@@ -7,7 +7,7 @@ void max31856_write_register(spi_device_handle_t spi_handle, uint8_t cs_pin, uin
     spi_transaction_t spi_transaction;
     memset( &spi_transaction, 0, sizeof( spi_transaction_t ) );
     uint8_t tx_data[1] = {address | 0x80};
-S
+
     gpio_set_level(cs_pin, 0);
     spi_transaction.flags = SPI_TRANS_USE_RXDATA;
     spi_transaction.length = 8;
