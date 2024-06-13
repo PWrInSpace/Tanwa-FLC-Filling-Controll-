@@ -1,4 +1,4 @@
-/* * Data converted from C:/Users/Matteo/Desktop/TANWA FLC/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

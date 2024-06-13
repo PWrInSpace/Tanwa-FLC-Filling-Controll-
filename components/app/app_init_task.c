@@ -18,7 +18,7 @@
 #include "esp_log.h"
 
 #include "TANWA_FLC_config.h"
-#include "mcu_adc_config.h"
+//#include "mcu_adc_config.h"
 
 
 #define TAG "APP_INIT_TASK"
@@ -35,16 +35,18 @@
 
 extern TANWA_hardware_t TANWA_hardware;
 
+
 void run_app_init(void) 
 {
   xTaskCreatePinnedToCore(app_init_task, "app_init_task", APP_INIT_TASK_STACK_SIZE, NULL, APP_INIT_TASK_PRIORITY, NULL, APP_INIT_TASK_CORE);
 }
 
-void app_init_task(void* pvParameters) {
+void app_init_task(void* pvParameters) 
+{
   ESP_LOGI(TAG, "### App initialization task started ###");
   esp_err_t ret = ESP_OK;
 
-  ESP_LOGI(TAG, "Initializing MCU configuration...");
+ ESP_LOGI(TAG, "Initializing MCU configuration...");
 
   ret |= TANWA_mcu_config_init();
   if (ret != ESP_OK) {
@@ -63,10 +65,10 @@ void app_init_task(void* pvParameters) {
   }
 
   ESP_LOGI(TAG, "### App initialization finished ###");
-
-  run_can_task();
-  vTaskDelay(pdMS_TO_TICKS(10));
-  measure_task();
-
+  
+  //run_can_task();
+  vTaskDelay(pdMS_TO_TICKS(1000));
+  //measure_task();
   vTaskDelete(NULL);
+  
 }

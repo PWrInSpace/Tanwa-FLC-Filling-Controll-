@@ -1,3 +1,4 @@
-idf_component_register(SRCS "."
+idf_component_register(SRCS "TANWA_FLC_config.c"  # Your source files for device_config
                        INCLUDE_DIRS "."
-                       REQUIRES hardware)
+                       REQUIRES hardware mcu_config)
+

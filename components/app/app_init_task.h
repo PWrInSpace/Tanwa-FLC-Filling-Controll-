@@ -23,4 +23,6 @@ void run_app_init(void);
  */
 void app_init_task(void* pvParameters);
 
+void test();
+
 #endif /* PWRINSPACE_TANWA_APP_INIT_TASK_H_ */

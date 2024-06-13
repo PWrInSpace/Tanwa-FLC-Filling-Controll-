@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Matteo/Desktop/TANWA FLC/managed_components/espressif__led_strip
+# Install script for directory: C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/managed_components/espressif__led_strip
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/TANWA")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/TANWA_FLC")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

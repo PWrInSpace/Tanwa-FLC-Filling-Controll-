@@ -38,6 +38,7 @@
         "gpio.h": "c",
         "spi_master.h": "c",
         "task.h": "c",
-        "sdkconfig.h": "c"
+        "sdkconfig.h": "c",
+        "regex": "c"
     }
 }

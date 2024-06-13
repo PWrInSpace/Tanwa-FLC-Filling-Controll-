@@ -55,6 +55,6 @@ void start()
 
 void app_main(void)
 {
-    start();
-    //run_app_init();
+    //start();
+    run_app_init();
 }

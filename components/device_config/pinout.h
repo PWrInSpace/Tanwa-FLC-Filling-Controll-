@@ -8,7 +8,6 @@
  * @copyright Copyright (c) 2023
  * 
  */
-#include "max31856.h"
 
 #ifndef PINOUT_HH
 #define PINOUT_HH
