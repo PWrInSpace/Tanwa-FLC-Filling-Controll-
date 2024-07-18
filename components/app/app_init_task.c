@@ -77,8 +77,7 @@ void app_init_task(void* pvParameters)
     ESP_LOGI(TAG, "### CAN initialization success ###");
   }
 
-
-  //run_can_task();
+  run_can_task();
   vTaskDelay(pdMS_TO_TICKS(1000));
   //measure_task();
   vTaskDelete(NULL);

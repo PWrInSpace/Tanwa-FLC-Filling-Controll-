@@ -16,8 +16,8 @@
 
 #define FLC_STATUS_OK 0
 #define FLC_STATUS_ERROR 1
-extern QueueHandle_t CMDS_queue;
-extern QueueHandle_t ThermoTemp_queue;
+QueueHandle_t CMDS_queue = NULL;
+QueueHandle_t ThermoTemp_queue = NULL;
 
 esp_err_t rtos_util_init(void *pvParameters);
 
