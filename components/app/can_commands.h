@@ -55,14 +55,5 @@ typedef enum {
 
 
 
-///===-----------------------------------------------------------------------------------------===//
-// CAN message parsing
-///===-----------------------------------------------------------------------------------------===//
-
-
-
-void parse_can_flc_status(twai_message_t rx_message);
-
-void parse_can_flc_data(twai_message_t rx_message);
 
 #endif /* PWRINSPACE_TANWA_CAN_COMMANDS_H_ */

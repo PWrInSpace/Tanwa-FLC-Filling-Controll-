@@ -18,7 +18,9 @@
 #include "esp_log.h"
 
 #include "TANWA_FLC_config.h"
+#include "can_task.h"
 //#include "mcu_adc_config.h"
+#include "mcu_twai_config.h"
 
 
 #define TAG "APP_INIT_TASK"
@@ -66,6 +68,16 @@ void app_init_task(void* pvParameters)
 
   ESP_LOGI(TAG, "### App initialization finished ###");
   
+
+    ret |= mcu_twai_init();
+
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "CAN initialization failed");
+    }else {
+    ESP_LOGI(TAG, "### CAN initialization success ###");
+  }
+
+
   //run_can_task();
   vTaskDelay(pdMS_TO_TICKS(1000));
   //measure_task();

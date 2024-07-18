@@ -14,7 +14,6 @@
 #include "esp_system.h"
 
 #include "app_init_task.h"
-#include "TANWA_FLC_config.h"
 void start()
 {
     printf("Hello world!\n");

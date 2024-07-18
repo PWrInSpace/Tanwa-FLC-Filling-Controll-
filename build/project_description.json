@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "TANWA_FLC",
-    "project_version":    "6d10042-dirty",
+    "project_version":    "4cf0007-dirty",
     "project_path":       "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC",
     "idf_path":           "C:/Users/Matteo/esp/v5.2.1/esp-idf",
     "build_dir":          "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build",
@@ -35,12 +35,12 @@
             "dir": "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app",
             "type": "LIBRARY",
             "lib": "__idf_app",
-            "reqs": [ "device_config" ],
+            "reqs": [ "device_config", "hardware" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build/esp-idf/app/libapp.a",
-            "sources": [ "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/app_init_task.c" ],
+            "sources": [ "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/measure_task.c", "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/rtos_utilities.c", "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/app_init_task.c", "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/can_task.c" ],
             "include_dirs": [ "." ]
         },
         "app_trace": {
@@ -175,7 +175,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build/esp-idf/device_config/libdevice_config.a",
-            "sources": [ "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c" ],
+            "sources": [ "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c", "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/mcu_twai_config.c" ],
             "include_dirs": [ "." ]
         },
         "driver": {
@@ -2199,7 +2199,7 @@
             "prefix": "idf",
             "dir": "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app",
             "lib": "__idf_app",
-            "reqs": [ "device_config" ],
+            "reqs": [ "device_config", "hardware" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],

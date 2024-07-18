@@ -39,6 +39,8 @@
         "spi_master.h": "c",
         "task.h": "c",
         "sdkconfig.h": "c",
-        "regex": "c"
+        "regex": "c",
+        "rtos_utilities.h": "c",
+        "can_commands.h": "c"
     }
 }
