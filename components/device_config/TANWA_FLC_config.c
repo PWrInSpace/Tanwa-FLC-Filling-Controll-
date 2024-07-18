@@ -62,13 +62,16 @@ esp_err_t TANWA_mcu_config_init()
     } else {
         ESP_LOGI(TAG, "I2C initialized");
     }
-   /* ret |= mcu_spi_init();
+    
+    ret |= mcu_spi_init();
     if (ret != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize SPI");
         return ret;
     } else {
         ESP_LOGI(TAG, "SPI initialized");
     }
+    
+    /*
     ret |= mcu_twai_init();
     if (ret != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize TWAI");

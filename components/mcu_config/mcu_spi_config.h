@@ -24,9 +24,9 @@
 #include "rom/gpio.h"
 #include "sdkconfig.h"
 #include "soc/gpio_struct.h"
-#define CONFIG_SPI_MISO 7
-#define CONFIG_SPI_MOSI 8
-#define CONFIG_SPI_SCK 9
+#define CONFIG_SPI_MISO 19
+#define CONFIG_SPI_MOSI 23
+#define CONFIG_SPI_SCK 18
 
 #define MCU_SPI_DEFAULT_CONFIG()                   \
   {                                                \

@@ -57,6 +57,7 @@ void app_init_task(void* pvParameters)
     ESP_LOGI(TAG, "### MCU configuration success ###");
   }
 
+
   ESP_LOGI(TAG, "Initializing hardware...");
   
   ret |= TANWA_hardware_init();
@@ -65,18 +66,7 @@ void app_init_task(void* pvParameters)
   } else {
     ESP_LOGI(TAG, "### Hardware initialization success ###");
   }
-
-  ESP_LOGI(TAG, "### App initialization finished ###");
   
-
-    ret |= mcu_twai_init();
-
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "CAN initialization failed");
-    }else {
-    ESP_LOGI(TAG, "### CAN initialization success ###");
-  }
-
   run_can_task();
   vTaskDelay(pdMS_TO_TICKS(1000));
   //measure_task();

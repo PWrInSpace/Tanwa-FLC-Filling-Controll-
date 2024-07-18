@@ -13,13 +13,13 @@
 #define RX_GPIO_NUM                     27 // TODO: CHECK PINOUT
 
 mcu_twai_config_t mcu_twai_config = {
-    .tx_gpio_num = TX_GPIO_NUM,
-    .rx_gpio_num = RX_GPIO_NUM,
+    .tx_gpio_num = 17,
+    .rx_gpio_num = 16,
     .mode = TWAI_MODE_NORMAL,
     .g_config = {
         .mode = TWAI_MODE_NORMAL,
-        .tx_io = TX_GPIO_NUM,
-        .rx_io = RX_GPIO_NUM,
+        .tx_io = 17,
+        .rx_io = 16,
         .clkout_io = TWAI_IO_UNUSED,
         .bus_off_io = TWAI_IO_UNUSED,
         .tx_queue_len = 1,
