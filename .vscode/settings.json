@@ -41,6 +41,7 @@
         "sdkconfig.h": "c",
         "regex": "c",
         "rtos_utilities.h": "c",
-        "can_commands.h": "c"
+        "can_commands.h": "c",
+        "data_handling.h": "c"
     }
 }

@@ -1,4 +1,4 @@
-idf_component_register(SRCS "measure_task.c" "rtos_utilities.c" "app_init_task.c" "can_task.c" # List all source files here
+idf_component_register(SRCS "data_handling.c" "rtos_utilities.c" "app_init_task.c" "can_task.c" # List all source files here
                        INCLUDE_DIRS "."
                        REQUIRES device_config hardware mcu_config)      # Include the current directory for headers
 

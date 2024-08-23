@@ -4,8 +4,9 @@
 /// Created: 21.06.2024 by Mateusz Kłosiński
 ///
 ///===-----------------------------------------------------------------------------------------===//
+#include "esp_log.h"
 #include "rtos_utilities.h"
-
+#include "can_commands.h"
 #define TAG "RTOS_UTILITIES"
 
 static SemaphoreHandle_t mutex;
@@ -27,6 +28,17 @@ esp_err_t rtos_util_init(void *pvParameters)
         ESP_LOGE(TAG, "Failed to create ThermoTemp_queue");
         return ESP_FAIL;
     }
+    ThermoTemp_queue_cj = xQueueCreate(10, sizeof(float));
+    if (ThermoTemp_queue == NULL) {
+        ESP_LOGE(TAG, "Failed to create ThermoTemp_queue_cj_queue");
+        return ESP_FAIL;
+    }
+    return ESP_OK;
+    PressureSens = xQueueCreate(10, sizeof(float));
+    if (PressureSens == NULL) {
+        ESP_LOGE(TAG, "Failed to create PressureSens_queue");
+        return ESP_FAIL;
+    }
     return ESP_OK;
 }
 /**
@@ -38,4 +50,9 @@ void set_status(bool status)
         FLC_status = status;
         xSemaphoreGive(mutex);
     }
+}
+
+bool get_status()
+{   
+    return FLC_status;
 }

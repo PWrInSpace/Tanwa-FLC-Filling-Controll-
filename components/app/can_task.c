@@ -46,20 +46,33 @@ void insert_float_into_uint8_array(float *value, uint8_t *bytes, uint8_t start_i
     memcpy(bytes + start_idx, value, sizeof(float));
 }
 
-void send_status(void) {
-    float temperature_celsius = 0;
-    uint8_t data[8] = {0}; // Full 8-byte array to match tx_msg.data_length_code
-    twai_message_t tx_msg;
-    tx_msg.identifier = CAN_FLC_TX_GET_STATUS;
+void send_status(void) 
+{
+    
 
+    twai_message_t tx_msg;
+    tx_msg.identifier = CAN_FLC_TX_STATUS;
+
+    float temperature_celsius[TMP1075_QUANTITY] = {0};
+    uint8_t data[8] = {0}; // Full 8-byte array to match tx_msg.data_length_code
+
+
+
+    uint16_t status = get_status();
+    memcpy(tx_msg.data, &status, sizeof(status));
+    
     // Read temperature in Celsius
-    if (tmp1075_get_temp_celsius(&TANWA_hardware.tmp1075[1], &temperature_celsius) != ESP_OK) {
+    for(int i =0; i<TMP1075_QUANTITY; i++)
+    {
+    if (tmp1075_get_temp_celsius(&TANWA_hardware.tmp1075[i], &temperature_celsius[i]) != ESP_OK) 
+    {
         ESP_LOGE(TAG, "TEMP READ CELSIUS FAIL");
         return;
     }
+    }
 
     // Insert the float value into the data array starting at index 4
-    insert_float_into_uint8_array(&temperature_celsius, data, 4);
+    insert_float_into_uint8_array(temperature_celsius, data, 4);
 
     // Calculate the length of meaningful data
     tx_msg.data_length_code = 8; // Full length
@@ -74,32 +87,31 @@ void send_status(void) {
     }
 }
 
-void send_data(void) {
-    float temperature_celsius = 0;
-    uint8_t data[8] = {0}; // Full 8-byte array to match tx_msg.data_length_code
+void send_data(void) 
+
+{
     twai_message_t tx_msg;
-    tx_msg.identifier = CAN_FLC_TX_GET_STATUS;
+    tx_msg.identifier = CAN_FLC_TX_DATA;
+    tx_msg.data_length_code = 8;
 
-    // Read temperature in Celsius
-    if (tmp1075_get_temp_celsius(&TANWA_hardware.tmp1075[1], &temperature_celsius) != ESP_OK) {
-        ESP_LOGE(TAG, "TEMP READ CELSIUS FAIL");
-        return;
-    }
+    uint8_t data[8] = {0};
+    float temp = 0;
+    float temp_cj = 0;
 
-    // Insert the float value into the data array starting at index 4
-    insert_float_into_uint8_array(&temperature_celsius, data, 4);
+    xQueueReceive(ThermoTemp_queue, &temp, 0);
+    xQueueReceive(ThermoTemp_queue_cj, &temp_cj, 0);
 
-    // Calculate the length of meaningful data
-    tx_msg.data_length_code = 8; // Full length
+    insert_float_into_uint8_array(&temp, data, 4);
+    insert_float_into_uint8_array(&temp_cj, data, 0);
 
-    // Copy the data array into the tx_msg.data
     memcpy(tx_msg.data, data, tx_msg.data_length_code);
 
-    // Transmit the message
+     // Transmit the message
     if (twai_transmit(&tx_msg, pdMS_TO_TICKS(100)) != ESP_OK) {
-        ESP_LOGE(TAG, "TRANSMIT TEMP CELSIUS FAIL");
+        ESP_LOGE(TAG, "TRANSMIT ThermoCouple FAIL");
         return;
     }
+    
 }
 
 
@@ -107,27 +119,27 @@ void can_decode_message(twai_message_t rx_msg)
 {
     switch(rx_msg.identifier)
     {
-        case CAN_FLC_TX_GET_STATUS: 
+        case CAN_FLC_RX_GET_STATUS: 
                 {
-                ESP_LOGI(TAG, "FLC SEND STATUS");
+                ESP_LOGI(TAG, "FLC RX SEND_STATUS");
                 send_status();
                 }break;
             
-        case CAN_FLC_TX_GET_DATA:
+        case CAN_FLC_RX_GET_DATA:
                 {
-                ESP_LOGI(TAG , "FLC GET STATUS");
+                ESP_LOGI(TAG , "FLC RX GET_DATA");
                 send_data();
                 }break;
-        case CAN_FLC_TX_SOFT_RESET:
+        case CAN_FLC_RX_SOFT_RESET:
                 {
-                    can_flc_commands_t cmd = CAN_FLC_TX_SOFT_RESET;
+                    can_flc_commands_t cmd = CAN_FLC_RX_SOFT_RESET;
                 if(xQueueSend(CMDS_queue, &cmd, 0) != pdTRUE) 
                     {
                         ESP_LOGE(TAG, "TRANSMIT  CAN_FLC_TX_SOFT_RESET TO COMMANDS QUEUE FAIL");
                     }
                 }break;
            
-        case CAN_FLC_TX_NOTHING:
+        case CAN_FLC_RX_NOTHING:
         {
              __asm__ __volatile__("nop");
         }break;
@@ -153,10 +165,16 @@ void can_task(void *pvParameters)
     vTaskDelete(NULL);
 }
 
-void run_can_task(void) {
+void run_can_task(void) 
+{
     
         xTaskCreatePinnedToCore(can_task, "can_task", CAN_TASK_STACK_SIZE, NULL, CAN_TASK_PRIORITY,
                                 &can_task_handle, CAN_TASK_CORE);
-    }
+}
 
+
+
+
+
+ 
 

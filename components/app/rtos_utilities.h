@@ -11,13 +11,19 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/queue.h"
-#include "can_commands.h"
-#include "esp_log.h"
+
+
 
 #define FLC_STATUS_OK 0
 #define FLC_STATUS_ERROR 1
-QueueHandle_t CMDS_queue = NULL;
-QueueHandle_t ThermoTemp_queue = NULL;
+extern QueueHandle_t CMDS_queue;
+extern QueueHandle_t ThermoTemp_queue;
+extern QueueHandle_t ThermoTemp_queue_cj;
+extern QueueHandle_t PressureSens;
 
 esp_err_t rtos_util_init(void *pvParameters);
+
+void set_status(bool status);
+
+bool get_status();
 

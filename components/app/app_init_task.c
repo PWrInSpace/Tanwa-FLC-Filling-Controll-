@@ -1,7 +1,7 @@
 ///===-----------------------------------------------------------------------------------------===//
 ///
 /// Copyright (c) PWr in Space. All rights reserved.
-/// Created: 25.02.2024 by Michał Kos
+/// Created: 20.06.2024 by Mateusz Kłosiński
 ///
 ///===-----------------------------------------------------------------------------------------===//
 
@@ -18,18 +18,9 @@
 #include "esp_log.h"
 
 #include "TANWA_FLC_config.h"
-#include "can_task.h"
-//#include "mcu_adc_config.h"
-#include "mcu_twai_config.h"
 
 
 #define TAG "APP_INIT_TASK"
-
-// static sdmmc_card_t sdmmc_card;
-
-// static sd_card_t sd_card = SD_CARD_DEFAULT_CONFIG(sdmmc_card);
-
-// static sd_card_config_t sd_card_conf = SD_CARD_CONFIG_DEFAULT_CONFIG();
 
 #define APP_INIT_TASK_STACK_SIZE 4096
 #define APP_INIT_TASK_PRIORITY 1
@@ -57,7 +48,6 @@ void app_init_task(void* pvParameters)
     ESP_LOGI(TAG, "### MCU configuration success ###");
   }
 
-
   ESP_LOGI(TAG, "Initializing hardware...");
   
   ret |= TANWA_hardware_init();
@@ -66,8 +56,11 @@ void app_init_task(void* pvParameters)
   } else {
     ESP_LOGI(TAG, "### Hardware initialization success ###");
   }
-  
-  run_can_task();
+
+  ESP_LOGI(TAG, "### App initialization finished ###");
+
+
+  //run_can_task();
   vTaskDelay(pdMS_TO_TICKS(1000));
   //measure_task();
   vTaskDelete(NULL);

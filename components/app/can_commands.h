@@ -21,14 +21,14 @@
 
 typedef enum {
     // Commands to the FLC submodule
-    CAN_FLC_TX_GET_STATUS = 0x0D0,
-    CAN_FLC_TX_GET_DATA = 0x0D1,
+    CAN_FLC_RX_GET_STATUS = 0x0D0,
+    CAN_FLC_RX_GET_DATA = 0x0D1,
     // place for new commands
-    CAN_FLC_TX_SOFT_RESET = 0x0D9,
-    CAN_FLC_TX_NOTHING = 0x0DF,
+    CAN_FLC_RX_SOFT_RESET = 0x0D9,
+    CAN_FLC_RX_NOTHING = 0x0DF,
     // Responses from the FLC submodule
-    CAN_FLC_RX_STATUS = 0x0DA,
-    CAN_FLC_RX_DATA = 0x0DB,
+    CAN_FLC_TX_STATUS = 0x0DA,
+    CAN_FLC_TX_DATA = 0x0DB,
 } can_flc_commands_t;
 
 
