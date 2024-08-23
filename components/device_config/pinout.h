@@ -32,7 +32,7 @@
 #define SOLENOID_PIN 22U
 
 // Thermocouples
-#define THERMOCOUPLE_CS1 27U
-#define THERMOCOUPLE_CS2 32U
+#define THERMOCOUPLE_CS1 33U
+#define THERMOCOUPLE_CS2 25U
 
 #endif // PINOUT_HH

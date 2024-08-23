@@ -14,12 +14,12 @@
 #include "sdkconfig.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "esp_log.h"
+
 
 #include "can_commands.h"
 #include "rtos_utilities.h"
 #include "TANWA_FLC_config.h"
-#define TAG "MEASURE_TASK"
+#define TAG "DATA_TASK"
 
 static TaskHandle_t data_handle_handle = NULL;
 //TODO: ADD STRUCT FOR DATA FOR THERMOCOUPLES AND 1 QUEUE FOR DATA STRUCT NOT FOR 2 THERMOCOUPLES
@@ -33,4 +33,4 @@ void data_handle_task(void *pvParameters);
 void stop_measure_task(void);
 
 
-void run_recieve_task(void);
+void run_data_handling_task(void);

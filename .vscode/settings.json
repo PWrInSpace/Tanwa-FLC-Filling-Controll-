@@ -42,6 +42,8 @@
         "regex": "c",
         "rtos_utilities.h": "c",
         "can_commands.h": "c",
-        "data_handling.h": "c"
+        "data_handling.h": "c",
+        "can_task.h": "c",
+        "*.inc": "c"
     }
 }

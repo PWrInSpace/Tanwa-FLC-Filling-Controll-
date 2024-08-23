@@ -5,7 +5,7 @@
 ///
 ///===-----------------------------------------------------------------------------------------===//
 #include "data_handling.h"
-
+#define TAG "DATA_TASK"
 esp_err_t measure()
 {   
     ESP_LOGI(TAG, "MEASURING TEMPERATURES");
@@ -16,15 +16,15 @@ esp_err_t measure()
     {
     thermo_temp_cj[i]= thermocouple_read_coldjunction(&TANWA_hardware.thermocouple[i]);
     thermo_temp[i] = thermocouple_read_temperature(&TANWA_hardware.thermocouple[i]);
-    ESP_LOGI(TAG, "thermo_temp_cj = : %0.2f", thermo_temp_cj);
-    ESP_LOGI(TAG, "thermo_temp = : %0.2f", thermo_temp);
+    ESP_LOGI(TAG, "thermo_temp_cj[%d] = : %0.2f",i, thermo_temp_cj);
+    ESP_LOGI(TAG, "thermo_temp[%d] = : %0.2f",i , thermo_temp);
 
      if(xQueueSend(ThermoTemp_queue_cj, &thermo_temp_cj[i], 0) != pdTRUE){
-        ESP_LOGE(TAG, "Error while sending thermo_temp_cj[%d] to queue", i);
+        ESP_LOGE(TAG, "Error while sending thermo_temp_cj to queue");
     }
 
     if(xQueueSend(ThermoTemp_queue, &thermo_temp[i], 0) != pdTRUE){
-        ESP_LOGE(TAG, "Error while sending thermo_temp[%d] to queue", i);
+        ESP_LOGE(TAG, "Error while sending thermo_temp to queue");
     }
 
     }
@@ -74,20 +74,21 @@ void data_handle_task(void *pvParameters)
      TickType_t xLastTime = xTaskGetTickCount();
     while (1) 
     {
+        command = CAN_FLC_RX_GET_DATA;
+        if(xQueueSend(CMDS_queue,&command,pdMS_TO_TICKS(2500))!=pdTRUE)
+        {
+            ESP_LOGE(TAG, "Failed to run get data command");
+        }
 
-        if(xQueueReceive(CMDS_queue, &command, pdMS_TO_TICKS(10)) != pdTRUE)
+        
+ 
+        if(xQueueReceive(CMDS_queue, &command, pdMS_TO_TICKS(2500)) != pdTRUE)
         {
             ESP_LOGE(TAG, "Error while recieving command from queue");
         }
         decode_command(&command);
 
-        command = CAN_FLC_RX_GET_DATA;
-        if(xQueueSend(CMDS_queue,&command,pdMS_TO_TICKS(10))!=pdTRUE)
-        {
-            ESP_LOGE(TAG, "Failed to run get data command");
-        }
-
-        vTaskDelayUntil(&xLastTime, pdMS_TO_TICKS(100));
+        vTaskDelayUntil(&xLastTime, pdMS_TO_TICKS(1000));
     }
 }
 
@@ -105,7 +106,7 @@ void stop_data_task(void)
     }
 }
 
-void run_recieve_task(void) {
+void run_data_handling_task(void) {
     xTaskCreatePinnedToCore(data_handle_task, "data_handle_task", 4096, NULL, 1,
                             &data_handle_handle, 0);
 }

@@ -21,7 +21,9 @@ extern QueueHandle_t ThermoTemp_queue;
 extern QueueHandle_t ThermoTemp_queue_cj;
 extern QueueHandle_t PressureSens;
 
-esp_err_t rtos_util_init(void *pvParameters);
+extern volatile bool FLC_status;
+
+esp_err_t rtos_util_init();
 
 void set_status(bool status);
 

@@ -10,9 +10,15 @@
 #define TAG "RTOS_UTILITIES"
 
 static SemaphoreHandle_t mutex;
-extern volatile bool FLC_status;
 
-esp_err_t rtos_util_init(void *pvParameters)
+volatile bool FLC_status;
+
+QueueHandle_t CMDS_queue = NULL;
+QueueHandle_t ThermoTemp_queue = NULL;
+QueueHandle_t ThermoTemp_queue_cj = NULL;
+QueueHandle_t PressureSens = NULL;
+
+esp_err_t rtos_util_init()
 {
     mutex = xSemaphoreCreateMutex();
     FLC_status = FLC_STATUS_OK;
@@ -29,7 +35,7 @@ esp_err_t rtos_util_init(void *pvParameters)
         return ESP_FAIL;
     }
     ThermoTemp_queue_cj = xQueueCreate(10, sizeof(float));
-    if (ThermoTemp_queue == NULL) {
+    if (ThermoTemp_queue_cj == NULL) {
         ESP_LOGE(TAG, "Failed to create ThermoTemp_queue_cj_queue");
         return ESP_FAIL;
     }

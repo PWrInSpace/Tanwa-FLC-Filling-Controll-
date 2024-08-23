@@ -6,7 +6,7 @@
 ///===-----------------------------------------------------------------------------------------===//
 
 #include "TANWA_FLC_config.h"
-
+#include "mcu_twai_config.h"
 #include "esp_log.h"
 //#include "mcu_gpio_config.h"
 #include "mcu_i2c_config.h"
@@ -19,9 +19,7 @@
 
 #define CONFIG_I2C_TMP1075_TS1_ADDR 0x11 //TODO: ADD ADRESS1
 #define CONFIG_I2C_TMP1075_TS2_ADDR 0x12 //TODO: ADD ADRESS2
-#define TMP1075_QUANTITY 2
 
-#define MAX31856_QUANTITY 2
 
 TANWA_hardware_t TANWA_hardware = 
 {
@@ -55,7 +53,7 @@ esp_err_t TANWA_mcu_config_init()
     }
     */
     
-    ret |= mcu_i2c_init();
+    ret = mcu_i2c_init();
     if (ret != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize I2C");
         return ret;
@@ -63,7 +61,7 @@ esp_err_t TANWA_mcu_config_init()
         ESP_LOGI(TAG, "I2C initialized");
     }
     
-    ret |= mcu_spi_init();
+    ret = mcu_spi_init();
     if (ret != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize SPI");
         return ret;
@@ -71,8 +69,8 @@ esp_err_t TANWA_mcu_config_init()
         ESP_LOGI(TAG, "SPI initialized");
     }
     
-    /*
-    ret |= mcu_twai_init();
+    
+    ret = mcu_twai_init();
     if (ret != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize TWAI");
         return ret;
@@ -80,7 +78,7 @@ esp_err_t TANWA_mcu_config_init()
         ESP_LOGI(TAG, "TWAI initialized");
     }
     
-   */
+   
     return ESP_OK;
 }
 

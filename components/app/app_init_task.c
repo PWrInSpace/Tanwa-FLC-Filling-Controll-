@@ -16,11 +16,11 @@
 #include "freertos/task.h"
 
 #include "esp_log.h"
-
 #include "TANWA_FLC_config.h"
+#include "can_task.h"
+#include "data_handling.h"
 
-
-#define TAG "APP_INIT_TASK"
+#define TAG1 "APP_INIT_TASK"
 
 #define APP_INIT_TASK_STACK_SIZE 4096
 #define APP_INIT_TASK_PRIORITY 1
@@ -36,33 +36,38 @@ void run_app_init(void)
 
 void app_init_task(void* pvParameters) 
 {
-  ESP_LOGI(TAG, "### App initialization task started ###");
+  ESP_LOGI(TAG1, "### App initialization task started ###");
   esp_err_t ret = ESP_OK;
 
- ESP_LOGI(TAG, "Initializing MCU configuration...");
+ ESP_LOGI(TAG1, "Initializing MCU configuration...");
 
-  ret |= TANWA_mcu_config_init();
+  ret = TANWA_mcu_config_init();
   if (ret != ESP_OK) {
-    ESP_LOGE(TAG, "MCU configuration failed");
+    ESP_LOGE(TAG1, "MCU configuration failed");
   } else {
-    ESP_LOGI(TAG, "### MCU configuration success ###");
+    ESP_LOGI(TAG1, "### MCU configuration success ###");
   }
 
-  ESP_LOGI(TAG, "Initializing hardware...");
+  ESP_LOGI(TAG1, "Initializing hardware...");
   
-  ret |= TANWA_hardware_init();
+  ret = TANWA_hardware_init();
   if (ret != ESP_OK) {
-    ESP_LOGE(TAG, "Hardware initialization failed");
+    ESP_LOGE(TAG1, "Hardware initialization failed");
   } else {
-    ESP_LOGI(TAG, "### Hardware initialization success ###");
+    ESP_LOGI(TAG1, "### Hardware initialization success ###");
+  }
+  ret = rtos_util_init();
+  if (ret != ESP_OK) {
+    ESP_LOGE(TAG1, "RTOS util initialization failed");
+  } else {
+    ESP_LOGI(TAG1, "### RTOS util initialization success ###");
   }
 
-  ESP_LOGI(TAG, "### App initialization finished ###");
+  run_can_task();
 
-
-  //run_can_task();
   vTaskDelay(pdMS_TO_TICKS(1000));
-  //measure_task();
+ // run_data_handling_task();
+  ESP_LOGI(TAG1, "### App initialization finished ###");
   vTaskDelete(NULL);
   
 }
