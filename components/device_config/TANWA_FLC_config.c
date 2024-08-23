@@ -97,10 +97,6 @@ esp_err_t TANWA_hardware_init()
         ESP_LOGI(TAG, "TMP1075 sensor 1 initialized");
     }
     }
-    for (int i=0; i<MAX31856_QUANTITY; i++)
-    {
-
-    }
 
     //INIT THERMOCOUPLES
     uint8_t fault_val;

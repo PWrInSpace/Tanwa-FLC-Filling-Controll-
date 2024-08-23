@@ -49,7 +49,7 @@ void app_init_task(void* pvParameters)
   }
 
   ESP_LOGI(TAG1, "Initializing hardware...");
-  
+  vTaskDelay(pdMS_TO_TICKS(2500));
   ret = TANWA_hardware_init();
   if (ret != ESP_OK) {
     ESP_LOGE(TAG1, "Hardware initialization failed");
@@ -66,7 +66,7 @@ void app_init_task(void* pvParameters)
   run_can_task();
 
   vTaskDelay(pdMS_TO_TICKS(1000));
- // run_data_handling_task();
+  //run_data_handling_task();
   ESP_LOGI(TAG1, "### App initialization finished ###");
   vTaskDelete(NULL);
   

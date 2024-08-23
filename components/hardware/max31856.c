@@ -238,8 +238,9 @@ bool max31856_init(max31856_cfg *max31856, uint8_t cs_pin) {
         .queue_size = 1,
     };
 
-    ret=spi_bus_add_device(VSPI_HOST, &devcfg, &max31856->spi);
+    ret=spi_bus_add_device(HSPI_HOST, &devcfg, &max31856->spi);
     ESP_ERROR_CHECK(ret);
+    printf("HANDLE %d",max31856->spi);
 
     // Assert on All Faults
     max31856_write_register(max31856->spi, cs_pin, MAX31856_MASK_REG, 0x00);
