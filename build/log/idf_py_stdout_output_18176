@@ -1,0 +1,30 @@
+[1/10] Building C object esp-idf/device_config/CMakeFiles/__idf_device_config.dir/TANWA_FLC_config.c.obj
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:33:9: warning: excess elements in array initializer
+   33 |         {
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:33:9: note: (near initialization for 'TANWA_hardware.tmp1075')
+[2/10] Linking C static library esp-idf\device_config\libdevice_config.a
+[3/10] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D C:\Users\Matteo\Desktop\TANWA\TANWA_FLC\build\bootloader\esp-idf\esptool_py && C:\Users\Matteo\.espressif\python_env\idf5.2_py3.11_env\Scripts\python.exe C:/Users/Matteo/esp/v5.2.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6860 bytes. 0x7a0 bytes (7%) free.
+[4/8] Generating ld/sections.ld
+[5/8] Linking CXX executable TANWA_FLC.elf
+[6/8] Generating binary image from built executable
+esptool.py v4.7.0
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build/TANWA_FLC.bin
+[7/8] cmd.exe /C "cd /D C:\Users\Matteo\Desktop\TANWA\TANWA_FLC\build\esp-idf\esptool_py && C:\Users\Matteo\.espressif\python_env\idf5.2_py3.11_env\Scripts\python.exe C:/Users/Matteo/esp/v5.2.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build/partition_table/partition-table.bin C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build/TANWA_FLC.bin"
+TANWA_FLC.bin binary size 0x3a320 bytes. Smallest app partition is 0x100000 bytes. 0xc5ce0 bytes (77%) free.
+[7/8] cmd.exe /C "cd /D C:\Users\Matteo\esp\v5.2.1\esp-idf\components\esptool_py && C:\Users\Matteo\.espressif\tools\cmake\3.24.0\bin\cmaesptool.py --chip esp32 -p COM3 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 TANWA_FLC.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.7.0
+Serial port COM3
+Connecting......................................
+
+A fatal error occurred: Failed to connect to ESP32: Invalid head of packet (0x25): Possible serial noise or corruption.
+For troubleshooting steps visit: https://docs.espressif.com/projects/esptool/en/latest/troubleshooting.html
+ke.exe -D IDF_PATH=C:/Users/Matteo/esp/v5.2.1/esp-idf -D SERIAL_TOOL=C:/Users/Matteo/.espressif/python_env/idf5.2_py3.11_env/Scripts/python.exe;;C:/Users/Matteo/esp/v5.2.1/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build -P C:/Users/Matteo/esp/v5.2.1/esp-idf/components/esptool_py/run_serial_tool.cmake"
+FAILED: CMakeFiles/flash C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build/CMakeFiles/flash 
+cmd.exe /C "cd /D C:\Users\Matteo\esp\v5.2.1\esp-idf\components\esptool_py && C:\Users\Matteo\.espressif\tools\cmake\3.24.0\bin\cmake.exe -D IDF_PATH=C:/Users/Matteo/esp/v5.2.1/esp-idf -D SERIAL_TOOL=C:/Users/Matteo/.espressif/python_env/idf5.2_py3.11_env/Scripts/python.exe;;C:/Users/Matteo/esp/v5.2.1/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build -P C:/Users/Matteo/esp/v5.2.1/esp-idf/components/esptool_py/run_serial_tool.cmake"
+ninja: build stopped: subcommand failed.

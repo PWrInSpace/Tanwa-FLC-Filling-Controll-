@@ -85,18 +85,8 @@ esp_err_t TANWA_mcu_config_init()
 esp_err_t TANWA_hardware_init() 
 {
 
-    //INIT TEMP SENS TMP1075
-    uint8_t ret = 0;
-    for (int i=0; i<TMP1075_QUANTITY; i++)
-    {
-    ret = tmp1075_init(&(TANWA_hardware.tmp1075[i]));
-    if (ret != TMP1075_OK) {
-        ESP_LOGE(TAG, "Failed to initialize TMP1075 sensor %d", i+1);
-        return ESP_FAIL;
-    } else {
-        ESP_LOGI(TAG, "TMP1075 sensor 1 initialized");
-    }
-    }
+    
+    
 
     //INIT THERMOCOUPLES
     uint8_t fault_val;
@@ -118,6 +108,23 @@ esp_err_t TANWA_hardware_init()
   {
     return ESP_FAIL;
   }
+
+
+
+
+  
+    //INIT TEMP SENS TMP1075
+  uint8_t ret = 0;
+    for (int i=0; i<TMP1075_QUANTITY; i++)
+    {
+    ret = tmp1075_init(&(TANWA_hardware.tmp1075[i]));
+    if (ret != TMP1075_OK) {
+        ESP_LOGE(TAG, "Failed to initialize TMP1075 sensor %d", i+1);
+        return ESP_FAIL;
+    } else {
+        ESP_LOGI(TAG, "TMP1075 sensor 1 initialized");
+    }
+    }
 
     return ESP_OK;
 }

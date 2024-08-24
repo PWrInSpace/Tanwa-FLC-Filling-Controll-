@@ -66,7 +66,7 @@ void app_init_task(void* pvParameters)
   run_can_task();
 
   vTaskDelay(pdMS_TO_TICKS(1000));
-  //run_data_handling_task();
+  run_data_handling_task();
   ESP_LOGI(TAG1, "### App initialization finished ###");
   vTaskDelete(NULL);
   
