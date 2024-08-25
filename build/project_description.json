@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "TANWA_FLC",
-    "project_version":    "0cd080f-dirty",
+    "project_version":    "0ae4982-dirty",
     "project_path":       "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC",
     "idf_path":           "C:/Users/Matteo/esp/v5.2.1/esp-idf",
     "build_dir":          "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build",
@@ -745,7 +745,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build/esp-idf/hardware/libhardware.a",
-            "sources": [ "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/max31856.c", "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/tmp1075.c" ],
+            "sources": [ "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.c", "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/ads1115.c", "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/max31856.c", "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/tmp1075.c" ],
             "include_dirs": [ "." ]
         },
         "heap": {
@@ -895,7 +895,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build/esp-idf/mcu_config/libmcu_config.a",
-            "sources": [ "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/mcu_config/mcu_i2c_config.c", "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/mcu_config/mcu_memory_config.c", "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/mcu_config/mcu_spi_config.c" ],
+            "sources": [ "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/mcu_config/mcu_i2c_config.c", "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/mcu_config/mcu_spi_config.c" ],
             "include_dirs": [ "." ]
         },
         "mqtt": {

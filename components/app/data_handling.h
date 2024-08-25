@@ -14,12 +14,11 @@
 #include "sdkconfig.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-
+#include "pressure_driver.h"
 
 #include "can_commands.h"
 #include "rtos_utilities.h"
 #include "TANWA_FLC_config.h"
-#define TAG "DATA_TASK"
 
 static TaskHandle_t data_handle_handle = NULL;
 //TODO: ADD STRUCT FOR DATA FOR THERMOCOUPLES AND 1 QUEUE FOR DATA STRUCT NOT FOR 2 THERMOCOUPLES

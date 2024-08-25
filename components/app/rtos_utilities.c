@@ -39,7 +39,6 @@ esp_err_t rtos_util_init()
         ESP_LOGE(TAG, "Failed to create ThermoTemp_queue_cj_queue");
         return ESP_FAIL;
     }
-    return ESP_OK;
     PressureSens = xQueueCreate(10, sizeof(float));
     if (PressureSens == NULL) {
         ESP_LOGE(TAG, "Failed to create PressureSens_queue");

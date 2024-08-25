@@ -1,0 +1,772 @@
+[1/14] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D C:\Users\Matteo\Desktop\TANWA\TANWA_FLC\build\bootloader\esp-idf\esptool_py && C:\Users\Matteo\.espressif\python_env\idf5.2_py3.11_env\Scripts\python.exe C:/Users/Matteo/esp/v5.2.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6860 bytes. 0x7a0 bytes (7%) free.
+[2/12] Building C object esp-idf/app/CMakeFiles/__idf_app.dir/data_handling.c.obj
+FAILED: esp-idf/app/CMakeFiles/__idf_app.dir/data_handling.c.obj 
+ccache C:\Users\Matteo\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20230928\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe -DESP_PLATFORM -DIDF_VER=\"v5.2.1\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -IC:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build/config -IC:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/newlib/platform_include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/config/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/config/include/freertos -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/config/xtensa/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/FreeRTOS-Kernel/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/esp_additions/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_hw_support/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_hw_support/include/soc -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_hw_support/include/soc/esp32 -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_hw_support/port/esp32/. -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/heap/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/log/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/soc/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/soc/esp32 -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/soc/esp32/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/hal/platform_port/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/hal/esp32/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/hal/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_rom/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_rom/include/esp32 -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_rom/esp32 -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_common/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_system/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_system/port/soc -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_system/port/include/private -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/xtensa/esp32/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/xtensa/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/xtensa/deprecated_include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/include/apps -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/include/apps/sntp -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/lwip/src/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/port/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/port/freertos/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/port/esp32xx/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/port/esp32xx/include/arch -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/port/esp32xx/include/sys -IC:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config -IC:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/deprecated -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/analog_comparator/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/dac/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/gpio/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/gptimer/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/i2c/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/i2s/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/ledc/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/mcpwm/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/parlio/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/pcnt/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/rmt/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/sdio_slave/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/sdmmc/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/sigma_delta/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/spi/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/temperature_sensor/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/touch_sensor/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/twai/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/uart/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/usb_serial_jtag/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/touch_sensor/esp32/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_pm/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_ringbuf/include -IC:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/mcu_config -mlongcalls -Wno-frame-address  -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=C:/Users/Matteo/Desktop/TANWA/TANWA_FLC=. -fmacro-prefix-map=C:/Users/Matteo/esp/v5.2.1/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -Wno-format -Werror -MD -MT esp-idf/app/CMakeFiles/__idf_app.dir/data_handling.c.obj -MF esp-idf\app\CMakeFiles\__idf_app.dir\data_handling.c.obj.d -o esp-idf/app/CMakeFiles/__idf_app.dir/data_handling.c.obj -c C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/data_handling.c
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/data_handling.c: In function 'measure_pressure':
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/data_handling.c:43:45: error: 'TANWA_utility' undeclared (first use in this function)
+   43 |             pressure_driver_read_pressure(&(TANWA_utility.pressure_driver), PRESSURE_DRIVER_SENSOR_1, &pressure[0]);
+      |                                             ^~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/data_handling.c:43:45: note: each undeclared identifier is reported only once for each function it appears in
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/data_handling.c: In function 'decode_command':
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/data_handling.c:62:15: warning: unused variable 'ret' [-Wunused-variable]
+   62 |     esp_err_t ret;
+      |               ^~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/data_handling.c: In function 'measure_pressure':
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/data_handling.c:58:1: error: control reaches end of non-void function [-Werror=return-type]
+   58 | }
+      | ^
+cc1.exe: all warnings being treated as errors
+[3/12] Building C object esp-idf/app/CMakeFiles/__idf_app.dir/rtos_utilities.c.obj
+[4/12] Building C object esp-idf/device_config/CMakeFiles/__idf_device_config.dir/TANWA_FLC_config.c.obj
+FAILED: esp-idf/device_config/CMakeFiles/__idf_device_config.dir/TANWA_FLC_config.c.obj 
+ccache C:\Users\Matteo\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20230928\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe -DESP_PLATFORM -DIDF_VER=\"v5.2.1\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -IC:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build/config -IC:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/newlib/platform_include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/config/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/config/include/freertos -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/config/xtensa/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/FreeRTOS-Kernel/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/freertos/esp_additions/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_hw_support/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_hw_support/include/soc -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_hw_support/include/soc/esp32 -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_hw_support/port/esp32/. -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/heap/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/log/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/soc/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/soc/esp32 -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/soc/esp32/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/hal/platform_port/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/hal/esp32/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/hal/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_rom/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_rom/include/esp32 -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_rom/esp32 -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_common/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_system/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_system/port/soc -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_system/port/include/private -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/xtensa/esp32/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/xtensa/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/xtensa/deprecated_include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/include/apps -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/include/apps/sntp -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/lwip/src/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/port/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/port/freertos/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/port/esp32xx/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/port/esp32xx/include/arch -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/lwip/port/esp32xx/include/sys -IC:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/deprecated -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/analog_comparator/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/dac/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/gpio/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/gptimer/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/i2c/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/i2s/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/ledc/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/mcpwm/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/parlio/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/pcnt/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/rmt/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/sdio_slave/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/sdmmc/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/sigma_delta/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/spi/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/temperature_sensor/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/touch_sensor/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/twai/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/uart/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/usb_serial_jtag/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/driver/touch_sensor/esp32/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_pm/include -IC:/Users/Matteo/esp/v5.2.1/esp-idf/components/esp_ringbuf/include -IC:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/mcu_config -mlongcalls -Wno-frame-address  -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=C:/Users/Matteo/Desktop/TANWA/TANWA_FLC=. -fmacro-prefix-map=C:/Users/Matteo/esp/v5.2.1/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -MD -MT esp-idf/device_config/CMakeFiles/__idf_device_config.dir/TANWA_FLC_config.c.obj -MF esp-idf\device_config\CMakeFiles\__idf_device_config.dir\TANWA_FLC_config.c.obj.d -o esp-idf/device_config/CMakeFiles/__idf_device_config.dir/TANWA_FLC_config.c.obj -c C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:34:9: warning: excess elements in array initializer
+   34 |         {
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:34:9: note: (near initialization for 'TANWA_hardware.tmp1075')
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:43:1: error: unknown type name 'TANWA_utility_t'
+   43 | TANWA_utility_t TANWA_utility = {
+      | ^~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: error: field name not in record or union initializer
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |     ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: note: (near initialization for 'TANWA_utility')
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: warning: braces around scalar initializer
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: note: (near initialization for 'TANWA_utility')
+In file included from C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:11:
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:34:5: error: field name not in record or union initializer
+   34 |     .ads1115 = X,                                               \
+      |     ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:34:5: note: (near initialization for 'TANWA_utility')
+   34 |     .ads1115 = X,                                               \
+      |     ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:68: error: 'TANWA_hardware_t' has no member named 'ads1115'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                                                                    ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:34:16: note: in definition of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   34 |     .ads1115 = X,                                               \
+      |                ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:35:5: error: field name not in record or union initializer
+   35 |     .sensors = {                                                \
+      |     ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:35:5: note: (near initialization for 'TANWA_utility')
+   35 |     .sensors = {                                                \
+      |     ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: warning: braces around scalar initializer
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |     ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: note: (near initialization for 'TANWA_utility')
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: warning: braces around scalar initializer
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: note: (near initialization for 'TANWA_utility')
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:37:9: error: field name not in record or union initializer
+   37 |         .sensor = PRESSURE_DRIVER_SENSOR_1,                     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:37:9: note: (near initialization for 'TANWA_utility')
+   37 |         .sensor = PRESSURE_DRIVER_SENSOR_1,                     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:38:9: error: field name not in record or union initializer
+   38 |         .adc_pin = PRESSURE_DRIVER_SENSOR_1_ADC_PIN,            \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:38:9: note: (near initialization for 'TANWA_utility')
+   38 |         .adc_pin = PRESSURE_DRIVER_SENSOR_1_ADC_PIN,            \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:38:20: warning: excess elements in scalar initializer
+   38 |         .adc_pin = PRESSURE_DRIVER_SENSOR_1_ADC_PIN,            \
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:38:20: note: (near initialization for 'TANWA_utility')
+   38 |         .adc_pin = PRESSURE_DRIVER_SENSOR_1_ADC_PIN,            \
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:39:9: error: field name not in record or union initializer
+   39 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:39:9: note: (near initialization for 'TANWA_utility')
+   39 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:26:46: warning: excess elements in scalar initializer
+   26 | #define PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE 0.0f
+      |                                              ^~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:39:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE'
+   39 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:26:46: note: (near initialization for 'TANWA_utility')
+   26 | #define PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE 0.0f
+      |                                              ^~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:39:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE'
+   39 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:40:9: error: field name not in record or union initializer
+   40 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:40:9: note: (near initialization for 'TANWA_utility')
+   40 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:27:46: warning: excess elements in scalar initializer
+   27 | #define PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE 350.0f
+      |                                              ^~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:40:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE'
+   40 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:27:46: note: (near initialization for 'TANWA_utility')
+   27 | #define PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE 350.0f
+      |                                              ^~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:40:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE'
+   40 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:41:9: error: field name not in record or union initializer
+   41 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:41:9: note: (near initialization for 'TANWA_utility')
+   41 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:29:45: warning: excess elements in scalar initializer
+   29 | #define PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE 0.33f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:41:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE'
+   41 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:29:45: note: (near initialization for 'TANWA_utility')
+   29 | #define PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE 0.33f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:41:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE'
+   41 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:42:9: error: field name not in record or union initializer
+   42 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:42:9: note: (near initialization for 'TANWA_utility')
+   42 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:30:45: warning: excess elements in scalar initializer
+   30 | #define PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE 2.80f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:42:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE'
+   42 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:30:45: note: (near initialization for 'TANWA_utility')
+   30 | #define PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE 2.80f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:42:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE'
+   42 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: warning: braces around scalar initializer
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |     ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: note: (near initialization for 'TANWA_utility')
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:45:9: error: field name not in record or union initializer
+   45 |         .sensor = PRESSURE_DRIVER_SENSOR_2,                     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:45:9: note: (near initialization for 'TANWA_utility')
+   45 |         .sensor = PRESSURE_DRIVER_SENSOR_2,                     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:46:9: error: field name not in record or union initializer
+   46 |         .adc_pin = PRESSURE_DRIVER_SENSOR_2_ADC_PIN,            \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:46:9: note: (near initialization for 'TANWA_utility')
+   46 |         .adc_pin = PRESSURE_DRIVER_SENSOR_2_ADC_PIN,            \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:46:20: warning: excess elements in scalar initializer
+   46 |         .adc_pin = PRESSURE_DRIVER_SENSOR_2_ADC_PIN,            \
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:46:20: note: (near initialization for 'TANWA_utility')
+   46 |         .adc_pin = PRESSURE_DRIVER_SENSOR_2_ADC_PIN,            \
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:47:9: error: field name not in record or union initializer
+   47 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:47:9: note: (near initialization for 'TANWA_utility')
+   47 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:26:46: warning: excess elements in scalar initializer
+   26 | #define PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE 0.0f
+      |                                              ^~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:47:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE'
+   47 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:26:46: note: (near initialization for 'TANWA_utility')
+   26 | #define PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE 0.0f
+      |                                              ^~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:47:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE'
+   47 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:48:9: error: field name not in record or union initializer
+   48 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:48:9: note: (near initialization for 'TANWA_utility')
+   48 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:27:46: warning: excess elements in scalar initializer
+   27 | #define PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE 350.0f
+      |                                              ^~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:48:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE'
+   48 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:27:46: note: (near initialization for 'TANWA_utility')
+   27 | #define PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE 350.0f
+      |                                              ^~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:48:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE'
+   48 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:49:9: error: field name not in record or union initializer
+   49 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:49:9: note: (near initialization for 'TANWA_utility')
+   49 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:29:45: warning: excess elements in scalar initializer
+   29 | #define PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE 0.33f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:49:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE'
+   49 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:29:45: note: (near initialization for 'TANWA_utility')
+   29 | #define PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE 0.33f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:49:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE'
+   49 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:50:9: error: field name not in record or union initializer
+   50 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:50:9: note: (near initialization for 'TANWA_utility')
+   50 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:30:45: warning: excess elements in scalar initializer
+   30 | #define PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE 2.80f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:50:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE'
+   50 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:30:45: note: (near initialization for 'TANWA_utility')
+   30 | #define PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE 2.80f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:50:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE'
+   50 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:44:7: warning: excess elements in scalar initializer
+   44 |       {                                                         \
+      |       ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:44:7: note: (near initialization for 'TANWA_utility')
+   44 |       {                                                         \
+      |       ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: warning: braces around scalar initializer
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |     ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: note: (near initialization for 'TANWA_utility')
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:53:9: error: field name not in record or union initializer
+   53 |         .sensor = PRESSURE_DRIVER_SENSOR_3,                     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:53:9: note: (near initialization for 'TANWA_utility')
+   53 |         .sensor = PRESSURE_DRIVER_SENSOR_3,                     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:54:9: error: field name not in record or union initializer
+   54 |         .adc_pin = PRESSURE_DRIVER_SENSOR_3_ADC_PIN,            \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:54:9: note: (near initialization for 'TANWA_utility')
+   54 |         .adc_pin = PRESSURE_DRIVER_SENSOR_3_ADC_PIN,            \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:54:20: warning: excess elements in scalar initializer
+   54 |         .adc_pin = PRESSURE_DRIVER_SENSOR_3_ADC_PIN,            \
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:54:20: note: (near initialization for 'TANWA_utility')
+   54 |         .adc_pin = PRESSURE_DRIVER_SENSOR_3_ADC_PIN,            \
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:55:9: error: field name not in record or union initializer
+   55 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:55:9: note: (near initialization for 'TANWA_utility')
+   55 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:26:46: warning: excess elements in scalar initializer
+   26 | #define PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE 0.0f
+      |                                              ^~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:55:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE'
+   55 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:26:46: note: (near initialization for 'TANWA_utility')
+   26 | #define PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE 0.0f
+      |                                              ^~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:55:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE'
+   55 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:56:9: error: field name not in record or union initializer
+   56 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:56:9: note: (near initialization for 'TANWA_utility')
+   56 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:27:46: warning: excess elements in scalar initializer
+   27 | #define PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE 350.0f
+      |                                              ^~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:56:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE'
+   56 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:27:46: note: (near initialization for 'TANWA_utility')
+   27 | #define PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE 350.0f
+      |                                              ^~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:56:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE'
+   56 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:57:9: error: field name not in record or union initializer
+   57 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:57:9: note: (near initialization for 'TANWA_utility')
+   57 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:29:45: warning: excess elements in scalar initializer
+   29 | #define PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE 0.33f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:57:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE'
+   57 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:29:45: note: (near initialization for 'TANWA_utility')
+   29 | #define PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE 0.33f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:57:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE'
+   57 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:58:9: error: field name not in record or union initializer
+   58 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:58:9: note: (near initialization for 'TANWA_utility')
+   58 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:30:45: warning: excess elements in scalar initializer
+   30 | #define PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE 2.80f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:58:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE'
+   58 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:30:45: note: (near initialization for 'TANWA_utility')
+   30 | #define PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE 2.80f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:58:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE'
+   58 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:52:7: warning: excess elements in scalar initializer
+   52 |       {                                                         \
+      |       ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:52:7: note: (near initialization for 'TANWA_utility')
+   52 |       {                                                         \
+      |       ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: warning: braces around scalar initializer
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |     ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:5: note: (near initialization for 'TANWA_utility')
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:61:9: error: field name not in record or union initializer
+   61 |         .sensor = PRESSURE_DRIVER_SENSOR_4,                     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:61:9: note: (near initialization for 'TANWA_utility')
+   61 |         .sensor = PRESSURE_DRIVER_SENSOR_4,                     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:62:9: error: field name not in record or union initializer
+   62 |         .adc_pin = PRESSURE_DRIVER_SENSOR_4_ADC_PIN,            \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:62:9: note: (near initialization for 'TANWA_utility')
+   62 |         .adc_pin = PRESSURE_DRIVER_SENSOR_4_ADC_PIN,            \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:62:20: warning: excess elements in scalar initializer
+   62 |         .adc_pin = PRESSURE_DRIVER_SENSOR_4_ADC_PIN,            \
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:62:20: note: (near initialization for 'TANWA_utility')
+   62 |         .adc_pin = PRESSURE_DRIVER_SENSOR_4_ADC_PIN,            \
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:63:9: error: field name not in record or union initializer
+   63 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:63:9: note: (near initialization for 'TANWA_utility')
+   63 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:26:46: warning: excess elements in scalar initializer
+   26 | #define PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE 0.0f
+      |                                              ^~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:63:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE'
+   63 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:26:46: note: (near initialization for 'TANWA_utility')
+   26 | #define PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE 0.0f
+      |                                              ^~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:63:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE'
+   63 |         .pressure_min = PRESSURE_DRIVER_DEFAULT_MIN_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:64:9: error: field name not in record or union initializer
+   64 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:64:9: note: (near initialization for 'TANWA_utility')
+   64 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:27:46: warning: excess elements in scalar initializer
+   27 | #define PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE 350.0f
+      |                                              ^~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:64:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE'
+   64 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:27:46: note: (near initialization for 'TANWA_utility')
+   27 | #define PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE 350.0f
+      |                                              ^~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:64:25: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE'
+   64 |         .pressure_max = PRESSURE_DRIVER_DEFAULT_MAX_PRESSURE,   \
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:65:9: error: field name not in record or union initializer
+   65 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:65:9: note: (near initialization for 'TANWA_utility')
+   65 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:29:45: warning: excess elements in scalar initializer
+   29 | #define PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE 0.33f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:65:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE'
+   65 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:29:45: note: (near initialization for 'TANWA_utility')
+   29 | #define PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE 0.33f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:65:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE'
+   65 |         .voltage_min = PRESSURE_DRIVER_DEFAULT_MIN_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:66:9: error: field name not in record or union initializer
+   66 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:66:9: note: (near initialization for 'TANWA_utility')
+   66 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |         ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:30:45: warning: excess elements in scalar initializer
+   30 | #define PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE 2.80f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:66:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE'
+   66 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:30:45: note: (near initialization for 'TANWA_utility')
+   30 | #define PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE 2.80f
+      |                                             ^~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:66:24: note: in expansion of macro 'PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE'
+   66 |         .voltage_max = PRESSURE_DRIVER_DEFAULT_MAX_VOLTAGE,     \
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:60:7: warning: excess elements in scalar initializer
+   60 |       {                                                         \
+      |       ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:60:7: note: (near initialization for 'TANWA_utility')
+   60 |       {                                                         \
+      |       ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:35:16: warning: excess elements in scalar initializer
+   35 |     .sensors = {                                                \
+      |                ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/hardware/pressure_driver.h:35:16: note: (near initialization for 'TANWA_utility')
+   35 |     .sensors = {                                                \
+      |                ^
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:44:24: note: in expansion of macro 'PRESSURE_DRIVER_TANWA_CONFIG'
+   44 |     .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c: In function 'TANWA_hardware_init':
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/device_config/TANWA_FLC_config.c:135:47: error: request for member 'pressure_driver' in something not a structure or union
+  135 |     ret = pressure_driver_init(&(TANWA_utility.pressure_driver));
+      |                                               ^
+[5/12] Building C object esp-idf/app/CMakeFiles/__idf_app.dir/app_init_task.c.obj
+In file included from C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/app_init_task.c:21:
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/data_handling.h:23:21: warning: 'data_handle_handle' defined but not used [-Wunused-variable]
+   23 | static TaskHandle_t data_handle_handle = NULL;
+      |                     ^~~~~~~~~~~~~~~~~~
+[6/12] Building C object esp-idf/app/CMakeFiles/__idf_app.dir/can_task.c.obj
+C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/components/app/can_task.c:36:26: warning: 'rx_sem' defined but not used [-Wunused-variable]
+   36 | static SemaphoreHandle_t rx_sem;
+      |                          ^~~~~~
+ninja: build stopped: subcommand failed.

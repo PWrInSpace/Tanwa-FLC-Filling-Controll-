@@ -114,6 +114,30 @@ void send_data(void)
     
 }
 
+void send_data_pressure(void) 
+
+{
+    twai_message_t tx_msg;
+    tx_msg.identifier = CAN_FLC_TX_DATA_PRESSURE;
+    tx_msg.data_length_code = 8;
+
+    uint8_t data[8] = {0};
+    float pressure = 0;
+
+    xQueueReceive(PressureSens, &pressure, 0);
+
+    insert_float_into_uint8_array(&pressure, data, 4);
+
+    memcpy(tx_msg.data, data, tx_msg.data_length_code);
+
+     // Transmit the message
+    if (twai_transmit(&tx_msg, pdMS_TO_TICKS(100)) != ESP_OK) {
+        ESP_LOGE(TAG, "TRANSMIT ThermoCouple FAIL");
+        return;
+    }
+    
+}
+
 
 void can_decode_message(twai_message_t rx_msg)
 {
@@ -129,6 +153,12 @@ void can_decode_message(twai_message_t rx_msg)
                 {
                 ESP_LOGI(TAG , "FLC RX GET_DATA");
                 send_data();
+                }break;
+
+        case CAN_FLC_RX_GET_DATA_PRESSURE:
+                {
+                ESP_LOGI(TAG , "FLC RX GET_DATA");
+                send_data_pressure();
                 }break;
         case CAN_FLC_RX_SOFT_RESET:
                 {

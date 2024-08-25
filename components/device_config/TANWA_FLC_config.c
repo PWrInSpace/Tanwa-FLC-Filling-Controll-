@@ -8,6 +8,7 @@
 #include "TANWA_FLC_config.h"
 #include "mcu_twai_config.h"
 #include "esp_log.h"
+#include "pressure_driver.h"
 //#include "mcu_gpio_config.h"
 #include "mcu_i2c_config.h"
 #include "mcu_spi_config.h"
@@ -37,8 +38,17 @@ TANWA_hardware_t TANWA_hardware =
             .config_register = 0,
         },
     },
+
+    .ads1115 = {
+        ._i2c_write = _mcu_i2c_write,
+        ._i2c_read = _mcu_i2c_read,
+        .i2c_address = 0x11,
+    },
 };
 
+TANWA_utility_t TANWA_utility = {
+    .pressure_driver = PRESSURE_DRIVER_TANWA_CONFIG(&TANWA_hardware.ads1115),
+};
 
 esp_err_t TANWA_mcu_config_init()
  {
@@ -124,6 +134,16 @@ esp_err_t TANWA_hardware_init()
     } else {
         ESP_LOGI(TAG, "TMP1075 sensor 1 initialized");
     }
+    }
+
+    //INIT PRESSURE SENSOR
+
+    ret = pressure_driver_init(&(TANWA_utility.pressure_driver));
+    if (ret != PRESSURE_DRIVER_OK) {
+        ESP_LOGE(TAG, "Failed to initialize pressure driver");
+        return ESP_FAIL;
+    } else {
+        ESP_LOGI(TAG, "Pressure driver initialized");
     }
 
     return ESP_OK;

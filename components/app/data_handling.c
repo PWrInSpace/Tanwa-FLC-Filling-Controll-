@@ -34,6 +34,31 @@ esp_err_t measure()
     return ESP_OK;
 }
 
+esp_err_t measure_pressure()
+{
+    ESP_LOGI(TAG, "MEASURING PRESSURE");
+
+    float pressure[PRESSURE_DRIVER_SENSOR_COUNT]= {0};
+     // Measure pressure
+             pressure_driver_read_pressure(&(TANWA_utility.pressure_driver), PRESSURE_DRIVER_SENSOR_1, &pressure[0]);
+             pressure_driver_read_pressure(&(TANWA_utility.pressure_driver), PRESSURE_DRIVER_SENSOR_2, &pressure[1]);
+             pressure_driver_read_pressure(&(TANWA_utility.pressure_driver), PRESSURE_DRIVER_SENSOR_3, &pressure[2]);
+             pressure_driver_read_pressure(&(TANWA_utility.pressure_driver), PRESSURE_DRIVER_SENSOR_4, &pressure[3]);
+
+    for (int i=0; i< PRESSURE_DRIVER_SENSOR_COUNT; i++)
+        {
+            if(xQueueSend(PressureSens, &pressure[i], 0) != pdTRUE)
+            {
+        ESP_LOGE(TAG, "Error while sending pressure to queue");
+            }
+            ESP_LOGI(TAG, "PRESSURE[%d] = : %0.2f",i, pressure[i]);
+        }
+
+    ESP_LOGI(TAG, "MEASURED PRESSURE");
+
+    return ESP_OK;
+}
+
 void decode_command(can_flc_commands_t *cmd)
 {
     esp_err_t ret;
@@ -59,6 +84,16 @@ void decode_command(can_flc_commands_t *cmd)
             esp_restart();
         }break;
 
+        case CAN_FLC_RX_GET_DATA_PRESSURE:
+        {
+            ESP_LOGI(TAG,"GET_DATA PRESSURE CMD");
+            if(measure_pressure()!=ESP_OK)
+            {
+                set_status(FLC_STATUS_ERROR);
+            }
+                set_status(FLC_STATUS_OK);
+        }break;
+
         default:
         {
             ESP_LOGE(TAG, "Unknown command");
@@ -79,6 +114,13 @@ void data_handle_task(void *pvParameters)
         {
             ESP_LOGE(TAG, "Failed to run get data command");
         }
+        vTaskDelayUntil(&xLastTime, pdMS_TO_TICKS(1000));
+
+         command = CAN_FLC_RX_GET_DATA_PRESSURE;
+         if(xQueueSend(CMDS_queue,&command,pdMS_TO_TICKS(2500))!=pdTRUE)
+         {
+             ESP_LOGE(TAG, "Failed to run get data command");
+         }
 
         
  
@@ -88,7 +130,7 @@ void data_handle_task(void *pvParameters)
         }
         decode_command(&command);
 
-        vTaskDelayUntil(&xLastTime, pdMS_TO_TICKS(1000));
+        vTaskDelayUntil(&xLastTime, pdMS_TO_TICKS(2500));
     }
 }
 
