@@ -29,17 +29,17 @@ esp_err_t rtos_util_init()
         return ESP_FAIL;
     }
 
-    ThermoTemp_queue = xQueueCreate(10, sizeof(float));
+    ThermoTemp_queue = xQueueCreate(1, MAX31856_QUANTITY * sizeof(int16_t));
     if (ThermoTemp_queue == NULL) {
         ESP_LOGE(TAG, "Failed to create ThermoTemp_queue");
         return ESP_FAIL;
     }
-    ThermoTemp_queue_cj = xQueueCreate(10, sizeof(float));
+    ThermoTemp_queue_cj = xQueueCreate(1, MAX31856_QUANTITY * sizeof(int16_t));
     if (ThermoTemp_queue_cj == NULL) {
         ESP_LOGE(TAG, "Failed to create ThermoTemp_queue_cj_queue");
         return ESP_FAIL;
     }
-    PressureSens = xQueueCreate(10, sizeof(float));
+    PressureSens = xQueueCreate(1, PRESSURE_DRIVER_SENSOR_COUNT * sizeof(int16_t));
     if (PressureSens == NULL) {
         ESP_LOGE(TAG, "Failed to create PressureSens_queue");
         return ESP_FAIL;

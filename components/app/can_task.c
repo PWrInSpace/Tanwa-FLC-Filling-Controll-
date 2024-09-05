@@ -46,6 +46,15 @@ void insert_float_into_uint8_array(float *value, uint8_t *bytes, uint8_t start_i
     memcpy(bytes + start_idx, value, sizeof(float));
 }
 
+void insert_int16_t_into_uint8_array(int16_t *value, uint8_t *bytes, uint8_t start_idx) 
+{
+    if (start_idx > 2) { 
+        ESP_LOGE(TAG, "Invalid start index");
+        return;
+    }
+    memcpy(bytes + start_idx, value, sizeof(int16_t));
+}
+
 void send_status(void) 
 {
     
@@ -54,6 +63,7 @@ void send_status(void)
     tx_msg.identifier = CAN_FLC_TX_STATUS;
 
     float temperature_celsius[TMP1075_QUANTITY] = {0};
+    int16_t temp_parsed[TMP1075_QUANTITY] = {0};
     uint8_t data[8] = {0}; // Full 8-byte array to match tx_msg.data_length_code
 
 
@@ -71,10 +81,14 @@ void send_status(void)
     }
     }
 
-    // Insert the float value into the data array starting at index 4
-    insert_float_into_uint8_array(temperature_celsius, data, 4);
+    for(int i =0; i<TMP1075_QUANTITY; i++)
+    {
+        temp_parsed[i] = temperature_celsius[i];
+    }
 
-    // Calculate the length of meaningful data
+    // Insert the float value into the data array starting at index x
+    insert_int16_t_into_uint8_array(&temp_parsed[0], data, 2);
+
     tx_msg.data_length_code = 8; // Full length
 
     // Copy the data array into the tx_msg.data
@@ -95,14 +109,27 @@ void send_data(void)
     tx_msg.data_length_code = 8;
 
     uint8_t data[8] = {0};
-    float temp = 0;
-    float temp_cj = 0;
+    int16_t temp[MAX31856_QUANTITY] = {0};
+    int16_t temp_cj[MAX31856_QUANTITY] = {0};
 
     xQueueReceive(ThermoTemp_queue, &temp, 0);
     xQueueReceive(ThermoTemp_queue_cj, &temp_cj, 0);
 
-    insert_float_into_uint8_array(&temp, data, 4);
-    insert_float_into_uint8_array(&temp_cj, data, 0);
+
+int i=0;
+while(i<MAX31856_QUANTITY)
+{
+    for (int j=0; j<6 ; j=+4)
+{
+    insert_int16_t_into_uint8_array(&temp[i], data, j);
+    insert_int16_t_into_uint8_array(&temp_cj[i], data, j+2);
+    i++;
+    
+}
+
+if (i>MAX31856_QUANTITY-1) break;
+
+}
 
     memcpy(tx_msg.data, data, tx_msg.data_length_code);
 
@@ -122,11 +149,11 @@ void send_data_pressure(void)
     tx_msg.data_length_code = 8;
 
     uint8_t data[8] = {0};
-    float pressure = 0;
+    int16_t pressure[4] = {0};
 
     xQueueReceive(PressureSens, &pressure, 0);
 
-    insert_float_into_uint8_array(&pressure, data, 4);
+    memcpy(pressure,data,4*sizeof(int16_t));
 
     memcpy(tx_msg.data, data, tx_msg.data_length_code);
 

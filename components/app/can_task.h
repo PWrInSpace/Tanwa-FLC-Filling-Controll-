@@ -30,4 +30,9 @@ void stop_can_task(void);
  */
 void can_task(void* pvParameters);
 
+/**
+ * @brief Function to send status via CAN
+ */
+void send_status(void);
+
 #endif /* PWRINSPACE_TANWA_CAN_TASK_H_ */
