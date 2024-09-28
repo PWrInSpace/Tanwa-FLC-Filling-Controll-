@@ -20,6 +20,7 @@ extern QueueHandle_t CMDS_queue;
 extern QueueHandle_t ThermoTemp_queue;
 extern QueueHandle_t ThermoTemp_queue_cj;
 extern QueueHandle_t PressureSens;
+extern QueueHandle_t TMP1075;
 
 extern volatile bool FLC_status;
 
@@ -28,4 +29,3 @@ esp_err_t rtos_util_init();
 void set_status(bool status);
 
 bool get_status();
-

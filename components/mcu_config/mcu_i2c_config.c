@@ -24,8 +24,8 @@ esp_err_t mcu_i2c_init() {
         .mode = I2C_MODE_MASTER,
         .sda_io_num = mcu_i2c_config.sda,
         .scl_io_num = mcu_i2c_config.scl,
-        .sda_pullup_en = GPIO_PULLUP_ENABLE,
-        .scl_pullup_en = GPIO_PULLUP_ENABLE,
+        .sda_pullup_en = GPIO_PULLUP_DISABLE,
+        .scl_pullup_en = GPIO_PULLUP_DISABLE,
         .master.clk_speed = mcu_i2c_config.clk_speed,
     };
     i2c_param_config(mcu_i2c_config.port, &conf);

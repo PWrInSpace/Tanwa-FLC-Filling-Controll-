@@ -17,7 +17,8 @@
 #define TMP1075_QUANTITY 1
 #define MAX31856_QUANTITY 2
 // TANWA hardware
-typedef struct {
+typedef struct
+{
 
     tmp1075_struct_t tmp1075[TMP1075_QUANTITY];
     max31856_cfg thermocouple[MAX31856_QUANTITY];
@@ -25,7 +26,8 @@ typedef struct {
 
 } TANWA_hardware_t;
 
-typedef struct {
+typedef struct
+{
     pressure_driver_struct_t pressure_driver;
 } TANWA_utility_t;
 

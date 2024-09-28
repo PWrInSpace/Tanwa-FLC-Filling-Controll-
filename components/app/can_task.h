@@ -28,7 +28,7 @@ void stop_can_task(void);
 /**
  * @brief Task for receiving and parsing the CAN BUS messages.
  */
-void can_task(void* pvParameters);
+void can_task(void *pvParameters);
 
 /**
  * @brief Function to send status via CAN

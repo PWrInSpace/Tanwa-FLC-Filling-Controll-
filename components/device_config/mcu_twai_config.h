@@ -30,7 +30,8 @@
  * \param rx_gpio_num GPIO number for RX pin
  * \param mode TWAI mode
  */
-typedef struct {
+typedef struct
+{
   gpio_num_t tx_gpio_num;
   gpio_num_t rx_gpio_num;
   twai_mode_t mode;

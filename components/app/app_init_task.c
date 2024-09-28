@@ -28,38 +28,46 @@
 
 extern TANWA_hardware_t TANWA_hardware;
 
-
-void run_app_init(void) 
+void run_app_init(void)
 {
   xTaskCreatePinnedToCore(app_init_task, "app_init_task", APP_INIT_TASK_STACK_SIZE, NULL, APP_INIT_TASK_PRIORITY, NULL, APP_INIT_TASK_CORE);
 }
 
-void app_init_task(void* pvParameters) 
+void app_init_task(void *pvParameters)
 {
   ESP_LOGI(TAG1, "### App initialization task started ###");
   esp_err_t ret = ESP_OK;
 
- ESP_LOGI(TAG1, "Initializing MCU configuration...");
+  ESP_LOGI(TAG1, "Initializing MCU configuration...");
 
   ret = TANWA_mcu_config_init();
-  if (ret != ESP_OK) {
+  if (ret != ESP_OK)
+  {
     ESP_LOGE(TAG1, "MCU configuration failed");
-  } else {
+  }
+  else
+  {
     ESP_LOGI(TAG1, "### MCU configuration success ###");
   }
 
   ESP_LOGI(TAG1, "Initializing hardware...");
-  vTaskDelay(pdMS_TO_TICKS(2500));
+  vTaskDelay(pdMS_TO_TICKS(1000));
   ret = TANWA_hardware_init();
-  if (ret != ESP_OK) {
+  if (ret != ESP_OK)
+  {
     ESP_LOGE(TAG1, "Hardware initialization failed");
-  } else {
+  }
+  else
+  {
     ESP_LOGI(TAG1, "### Hardware initialization success ###");
   }
   ret = rtos_util_init();
-  if (ret != ESP_OK) {
+  if (ret != ESP_OK)
+  {
     ESP_LOGE(TAG1, "RTOS util initialization failed");
-  } else {
+  }
+  else
+  {
     ESP_LOGI(TAG1, "### RTOS util initialization success ###");
   }
 
@@ -69,5 +77,4 @@ void app_init_task(void* pvParameters)
   run_data_handling_task();
   ESP_LOGI(TAG1, "### App initialization finished ###");
   vTaskDelete(NULL);
-  
 }

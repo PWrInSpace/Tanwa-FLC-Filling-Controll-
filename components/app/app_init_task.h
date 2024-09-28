@@ -14,14 +14,14 @@
 
 /**
  * @brief Function for initializing the system.
- * 
+ *
  */
 void run_app_init(void);
 
 /**
  * @brief Task for initializing of the system.
  */
-void app_init_task(void* pvParameters);
+void app_init_task(void *pvParameters);
 
 void test();
 

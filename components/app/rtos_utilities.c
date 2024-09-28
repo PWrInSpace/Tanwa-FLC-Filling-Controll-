@@ -17,6 +17,7 @@ QueueHandle_t CMDS_queue = NULL;
 QueueHandle_t ThermoTemp_queue = NULL;
 QueueHandle_t ThermoTemp_queue_cj = NULL;
 QueueHandle_t PressureSens = NULL;
+QueueHandle_t TMP1075 = NULL;
 
 esp_err_t rtos_util_init()
 {
@@ -24,23 +25,34 @@ esp_err_t rtos_util_init()
     FLC_status = FLC_STATUS_OK;
 
     CMDS_queue = xQueueCreate(10, sizeof(can_flc_commands_t));
-    if (CMDS_queue == NULL) {
+    if (CMDS_queue == NULL)
+    {
         ESP_LOGE(TAG, "Failed to create CMDS_queue");
         return ESP_FAIL;
     }
 
     ThermoTemp_queue = xQueueCreate(1, MAX31856_QUANTITY * sizeof(int16_t));
-    if (ThermoTemp_queue == NULL) {
+    if (ThermoTemp_queue == NULL)
+    {
         ESP_LOGE(TAG, "Failed to create ThermoTemp_queue");
         return ESP_FAIL;
     }
     ThermoTemp_queue_cj = xQueueCreate(1, MAX31856_QUANTITY * sizeof(int16_t));
-    if (ThermoTemp_queue_cj == NULL) {
+    if (ThermoTemp_queue_cj == NULL)
+    {
         ESP_LOGE(TAG, "Failed to create ThermoTemp_queue_cj_queue");
         return ESP_FAIL;
     }
     PressureSens = xQueueCreate(1, PRESSURE_DRIVER_SENSOR_COUNT * sizeof(int16_t));
-    if (PressureSens == NULL) {
+    if (PressureSens == NULL)
+    {
+        ESP_LOGE(TAG, "Failed to create PressureSens_queue");
+        return ESP_FAIL;
+    }
+    return ESP_OK;
+    TMP1075 = xQueueCreate(1, TMP1075_QUANTITY * sizeof(int16_t));
+    if (PressureSens == NULL)
+    {
         ESP_LOGE(TAG, "Failed to create PressureSens_queue");
         return ESP_FAIL;
     }
@@ -51,13 +63,14 @@ esp_err_t rtos_util_init()
  */
 void set_status(bool status)
 {
-    if(xSemaphoreTake(mutex, pdMS_TO_TICKS(10)) == pdTRUE) {
+    if (xSemaphoreTake(mutex, pdMS_TO_TICKS(10)) == pdTRUE)
+    {
         FLC_status = status;
         xSemaphoreGive(mutex);
     }
 }
 
 bool get_status()
-{   
+{
     return FLC_status;
 }

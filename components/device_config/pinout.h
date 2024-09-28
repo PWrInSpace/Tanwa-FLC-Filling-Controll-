@@ -28,9 +28,6 @@
 #define UART2_RX 16U
 #define UART2_TX 17U
 
-// Solenoid
-#define SOLENOID_PIN 22U
-
 // Thermocouples
 #define THERMOCOUPLE_CS1 33U
 #define THERMOCOUPLE_CS2 25U

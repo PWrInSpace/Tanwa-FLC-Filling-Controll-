@@ -191,7 +191,7 @@ float thermocouple_read_coldjunction(max31856_cfg *max31856) {
 float thermocouple_read_temperature(max31856_cfg *max31856) {
     max31856_oneshot_temperature(max31856->spi, max31856->cs_pin);
     uint32_t tc_temp = max31856_read_register24(max31856->spi, max31856->cs_pin, MAX31856_LTCBH_REG);
-    // ESP_LOGI(TAG, "Thermo raw temp: %d", tc_temp);
+     ESP_LOGI(TAG, "Thermo raw temp: %d", tc_temp);
     if (tc_temp & 0x800000) {
         tc_temp |= 0xFF000000; // fix sign bit
     }
@@ -240,7 +240,6 @@ bool max31856_init(max31856_cfg *max31856, uint8_t cs_pin) {
 
     ret=spi_bus_add_device(HSPI_HOST, &devcfg, &max31856->spi);
     ESP_ERROR_CHECK(ret);
-    printf("HANDLE %d",max31856->spi);
 
     // Assert on All Faults
     max31856_write_register(max31856->spi, cs_pin, MAX31856_MASK_REG, 0x00);
