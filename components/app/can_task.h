@@ -35,4 +35,9 @@ void can_task(void *pvParameters);
  */
 void send_status(void);
 
+/**
+ * @brief Function that sends beacon do master
+ * 
+ */
+void send_beacon_task(void *pvParameters);
 #endif /* PWRINSPACE_TANWA_CAN_TASK_H_ */

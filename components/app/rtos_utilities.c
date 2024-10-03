@@ -18,7 +18,7 @@ QueueHandle_t ThermoTemp_queue = NULL;
 QueueHandle_t ThermoTemp_queue_cj = NULL;
 QueueHandle_t PressureSens = NULL;
 QueueHandle_t TMP1075 = NULL;
-
+static TaskHandle_t check_stack_usage_task_handle = NULL;
 esp_err_t rtos_util_init()
 {
     mutex = xSemaphoreCreateMutex();
@@ -73,4 +73,15 @@ void set_status(bool status)
 bool get_status()
 {
     return FLC_status;
+}
+void check_stack_usage_task(void *pvParameters)
+{
+    UBaseType_t remainingStack = uxTaskGetStackHighWaterMark(NULL);
+printf("Remaining stack: %d bytes\n", remainingStack * sizeof(StackType_t));
+}
+
+void run_check_stack_usage_task(void)
+{
+    xTaskCreatePinnedToCore(check_stack_usage_task, "check_stack_usage_task", 256, NULL, 7,
+                            &check_stack_usage_task_handle, 0);
 }

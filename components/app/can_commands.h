@@ -31,6 +31,7 @@ typedef enum {
     CAN_FLC_TX_STATUS = 0x0DA,
     CAN_FLC_TX_DATA = 0x0DB,
     CAN_FLC_TX_DATA_PRESSURE = 0x0DC,
+    CAN_FLC_TX_BEACON = 0x0DE,
 } can_flc_commands_t;
 
 

@@ -29,3 +29,5 @@ esp_err_t rtos_util_init();
 void set_status(bool status);
 
 bool get_status();
+
+void run_check_stack_usage_task(void);

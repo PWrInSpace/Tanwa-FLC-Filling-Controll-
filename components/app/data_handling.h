@@ -20,7 +20,7 @@
 #include "TANWA_FLC_config.h"
 
 static TaskHandle_t data_handle_handle = NULL;
-// TODO: ADD STRUCT FOR DATA FOR THERMOCOUPLES AND 1 QUEUE FOR DATA STRUCT NOT FOR 2 THERMOCOUPLES
+
 esp_err_t measure();
 
 void decode_command(can_flc_commands_t *cmd);

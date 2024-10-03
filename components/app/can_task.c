@@ -25,7 +25,7 @@
 #define CAN_TASK_STACK_SIZE 4096
 #define CAN_TASK_PRIORITY 9
 #define CAN_TASK_CORE 1
-#define CAN_TASK_DEFAULT_FREQ 100
+#define CAN_TASK_DEFAULT_FREQ 50
 
 #define TAG "TWAI Listen Only"
 
@@ -34,6 +34,7 @@
 #endif
 
 static TaskHandle_t can_task_handle = NULL;
+static TaskHandle_t send_beacon_task_handle = NULL;
 /**
  * @brief function that inserts float into uint8_t array
  * 
@@ -149,8 +150,11 @@ void send_data(void)
     int16_t temp_cj[MAX31856_QUANTITY] = {0};
 
     // RECIEVE FROM QUEUE
-    xQueueReceive(ThermoTemp_queue, &temp, 0);
-    xQueueReceive(ThermoTemp_queue_cj, &temp_cj, 0); //not used
+    xQueueReceive(ThermoTemp_queue, &temp, 100);
+    printf("##########################################\n");
+    ESP_LOGI(TAG,"GOWNO[0] %d   GOWNO[1] %d     GOWNO[2] %d     GOWNO[3] %d\n", temp[0],data[1],data[2],data[3]);
+    printf("##########################################\n");
+   // xQueueReceive(ThermoTemp_queue_cj, &temp_cj, 0); //not used
 
     //*INPUT TO FRAME
     int i = 0;
@@ -170,6 +174,7 @@ void send_data(void)
         break;
     }
     //*END INPUT TO FRAME
+    
 
     memcpy(tx_msg.data, data, tx_msg.data_length_code);
 
@@ -195,18 +200,65 @@ void send_data_pressure(void)
     uint8_t data[8] = {0};
     int16_t pressure[4] = {0};
 
-    xQueueReceive(PressureSens, &pressure, 0);
+    xQueueReceive(PressureSens, &pressure, 100);
+    
+    printf("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+    ESP_LOGI(TAG,"PRESSURE[0] %d   PRESSURE[1] %d     PRESSURE[2] %d     PRESSURE[3] %d\n", pressure[0],pressure[1],pressure[2],pressure[3]);
+    printf("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+    
+   //*INPUT TO FRAME
+    int i = 0;
+    while (i < PRESSURE_DRIVER_SENSOR_COUNT)
+    {
+    // Loop to insert int16_t values into the uint8_t array
+    for (int j = 0; j < 8; j += 2)
+    {
+        if (i >= PRESSURE_DRIVER_SENSOR_COUNT)  // Make sure we don't go out of bounds
+            break;
+        
+        insert_int16_t_into_uint8_array(&pressure[i], data, j);
+        i++;  // Move to the next int16_t value
+    }
 
-    memcpy(pressure, data, 4 * sizeof(int16_t));
+    if (i >= PRESSURE_DRIVER_SENSOR_COUNT)  // Double-check bounds to avoid overflow
+        break;
+    }
+
+    
+     
 
     memcpy(tx_msg.data, data, tx_msg.data_length_code);
 
+
+   
+
+    
     // Transmit the message
     if (twai_transmit(&tx_msg, pdMS_TO_TICKS(100)) != ESP_OK)
     {
         ESP_LOGE(TAG, "TRANSMIT ThermoCouple FAIL");
         return;
     }
+}
+void send_beacon_task(void *pvParameters)
+{
+
+    twai_message_t tx_msg;
+    tx_msg.identifier = CAN_FLC_TX_BEACON;
+    tx_msg.data_length_code = 8;
+
+    while (true)
+    {
+        // Transmit the message
+        if (twai_transmit(&tx_msg, pdMS_TO_TICKS(100)) != ESP_OK)
+    {
+        ESP_LOGE(TAG, "TRANSMIT Beacon FAIL");
+        return;
+    }
+    vTaskDelay(pdMS_TO_TICKS(250));
+    }
+    vTaskDelete(NULL);
+    
 }
 
 /**
@@ -227,14 +279,14 @@ void can_decode_message(twai_message_t rx_msg)
 
     case CAN_FLC_RX_GET_DATA:
     {
-        ESP_LOGI(TAG, "FLC RX GET_DATA");
+        ESP_LOGI(TAG, "FLC RX GET_THERMOCOUPLES");
         send_data();
     }
     break;
 
     case CAN_FLC_RX_GET_DATA_PRESSURE:
     {
-        ESP_LOGI(TAG, "FLC RX GET_DATA");
+        ESP_LOGI(TAG, "FLC RX GET_PRESSURE");
         send_data_pressure();
     }
     break;
@@ -292,6 +344,8 @@ void run_can_task(void)
     } else {
     xTaskCreatePinnedToCore(can_task, "can_task", CAN_TASK_STACK_SIZE, NULL, CAN_TASK_PRIORITY,
                             &can_task_handle, CAN_TASK_CORE);
+    //xTaskCreatePinnedToCore(send_beacon_task, "send_beacon_task", 1024, NULL, CAN_TASK_PRIORITY-1,
+    //                        &send_beacon_task_handle, CAN_TASK_CORE-1);
     }
 
 }

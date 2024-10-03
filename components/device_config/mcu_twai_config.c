@@ -9,8 +9,8 @@
 
 #define TAG "MCU_TWAI"
 
-#define TX_GPIO_NUM 28 // TODO: CHECK PINOUT
-#define RX_GPIO_NUM 27 // TODO: CHECK PINOUT
+#define TX_GPIO_NUM 17 // TODO: CHECK PINOUT
+#define RX_GPIO_NUM 16 // TODO: CHECK PINOUT
 
 mcu_twai_config_t mcu_twai_config = {
     .tx_gpio_num = 17,
