@@ -34,7 +34,9 @@
 #endif
 
 static TaskHandle_t can_task_handle = NULL;
-static TaskHandle_t send_beacon_task_handle = NULL;
+
+TickType_t Max_time = 500;
+
 /**
  * @brief function that inserts float into uint8_t array
  * 
@@ -240,24 +242,18 @@ void send_data_pressure(void)
         return;
     }
 }
-void send_beacon_task(void *pvParameters)
+void update_state()
 {
 
     twai_message_t tx_msg;
     tx_msg.identifier = CAN_FLC_TX_BEACON;
     tx_msg.data_length_code = 8;
 
-    while (true)
-    {
-        // Transmit the message
         if (twai_transmit(&tx_msg, pdMS_TO_TICKS(100)) != ESP_OK)
-    {
+        {
         ESP_LOGE(TAG, "TRANSMIT Beacon FAIL");
         return;
-    }
-    vTaskDelay(pdMS_TO_TICKS(250));
-    }
-    vTaskDelete(NULL);
+        }
     
 }
 
@@ -319,13 +315,21 @@ void can_decode_message(twai_message_t rx_msg)
 void can_task(void *pvParameters)
 {
     TickType_t xLastWakeTime = xTaskGetTickCount();
-
+    const TickType_t update_time = pdMS_TO_TICKS(1000);
     while (true)
     {
         twai_message_t rx_msg;
         if (twai_receive(&rx_msg, pdMS_TO_TICKS(100)) == ESP_OK)
         {
             can_decode_message(rx_msg);
+        }
+        TickType_t current_tick_count = xTaskGetTickCount();
+
+         if ((current_tick_count - xLastWakeTime) >= update_time)
+        {
+            ESP_LOGI(TAG,"Update_state");
+            update_state();
+            xLastWakeTime = current_tick_count;
         }
 
         vTaskDelayUntil(&xLastWakeTime, pdMS_TO_TICKS(CAN_TASK_DEFAULT_FREQ));
