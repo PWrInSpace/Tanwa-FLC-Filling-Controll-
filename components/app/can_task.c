@@ -251,7 +251,7 @@ void update_state()
 
         if (twai_transmit(&tx_msg, pdMS_TO_TICKS(100)) != ESP_OK)
         {
-        ESP_LOGE(TAG, "TRANSMIT Beacon FAIL");
+        ESP_LOGE(TAG, "&&&&&&&&&&&&&&&TRANSMIT Beacon FAIL&&&&&&&&&&&&&&&&&&&");
         return;
         }
     
@@ -315,7 +315,7 @@ void can_decode_message(twai_message_t rx_msg)
 void can_task(void *pvParameters)
 {
     TickType_t xLastWakeTime = xTaskGetTickCount();
-    const TickType_t update_time = pdMS_TO_TICKS(1000);
+    const TickType_t update_time = pdMS_TO_TICKS(500);
     while (true)
     {
         twai_message_t rx_msg;
@@ -327,7 +327,7 @@ void can_task(void *pvParameters)
 
          if ((current_tick_count - xLastWakeTime) >= update_time)
         {
-            ESP_LOGI(TAG,"Update_state");
+            ESP_LOGI(TAG,"&&&&&&&&&&&&&&&Update_state&&&&&&&&&&&&&&&");
             update_state();
             xLastWakeTime = current_tick_count;
         }
