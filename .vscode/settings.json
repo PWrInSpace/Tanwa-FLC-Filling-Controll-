@@ -46,6 +46,8 @@
         "can_task.h": "c",
         "*.inc": "c",
         "stdio.h": "c",
-        "*.tcc": "c"
+        "*.tcc": "c",
+        "mcu_twai_config.h": "c",
+        "twai.h": "c"
     }
 }
