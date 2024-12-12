@@ -33,8 +33,8 @@ mcu_twai_config_t mcu_twai_config =
     },
     .t_config = TWAI_TIMING_CONFIG_250KBITS(),
     .f_config = {
-        .acceptance_code = 0x0D0,
-        .acceptance_mask = 0x00F,
+        .acceptance_code = (0x0D0 << 21),
+        .acceptance_mask = ~(0x7FF << 21),
         .single_filter = true,
     },
 };

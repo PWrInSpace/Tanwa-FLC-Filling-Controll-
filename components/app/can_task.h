@@ -14,7 +14,7 @@
 #define PWRINSPACE_TANWA_CAN_TASK_H_
 
 #include <stdint.h>
-
+#include "mcu_twai_config.h"
 /**
  * @brief Function for starting the can bus task.
  */

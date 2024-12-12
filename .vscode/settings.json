@@ -48,6 +48,7 @@
         "stdio.h": "c",
         "*.tcc": "c",
         "mcu_twai_config.h": "c",
-        "twai.h": "c"
+        "twai.h": "c",
+        "stdint.h": "c"
     }
 }

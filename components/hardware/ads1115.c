@@ -55,7 +55,7 @@ static ads1115_status_t read_reg_2b(ads1115_struct_t *ads1115, uint8_t reg, uint
     ret = ads1115->_i2c_read(ads1115->i2c_address, reg, buf, 2);
     if (ret != true)
     {
-        ESP_LOGE(TAG, "Could not read from register 0x%02x", reg);
+       // ESP_LOGE(TAG, "Could not read from register 0x%02x", reg);
         return ADS1115_READ_ERR;
     }
     *val = (buf[0] << 8) | buf[1];
@@ -81,7 +81,7 @@ static ads1115_status_t read_conf_bits(ads1115_struct_t *ads1115, uint8_t offs, 
 
     ret = read_reg_2b(ads1115, REG_CONFIG, &val);
     if (ret != ADS1115_OK) {
-        ESP_LOGE(TAG, "Could not read config register");
+       // ESP_LOGE(TAG, "Could not read config register");
         return ret;
     }
 
@@ -99,7 +99,7 @@ static ads1115_status_t write_conf_bits(ads1115_struct_t *ads1115, uint16_t val,
 
     ret = read_reg_2b(ads1115, REG_CONFIG, &old);
     if (ret != ADS1115_OK) {
-        ESP_LOGE(TAG, "Could not read config register");
+   //     ESP_LOGE(TAG, "Could not read config register");
         return ret;
     }
 

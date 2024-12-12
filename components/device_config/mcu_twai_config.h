@@ -58,4 +58,6 @@ esp_err_t mcu_twai_deinit();
  */
 void mcu_twai_check_alerts();
 
+void monitor_twai_status(void);
+
 #endif // PWRINSPACE_MCU_TWAI_CONFIG_H_

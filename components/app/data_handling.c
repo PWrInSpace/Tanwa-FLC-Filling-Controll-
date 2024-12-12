@@ -15,28 +15,26 @@
 esp_err_t measure()
 {
     ESP_LOGI(TAG, "MEASURING TEMPERATURES");
-
-    int16_t thermo_temp_cj[MAX31856_QUANTITY] = {0};
+    
     int16_t thermo_temp[MAX31856_QUANTITY] = {0};
 
-    // Measure cold junction and temperature for each thermocouple and sends it to queue
+    // Measure temperature for each thermocouple and sends it to queue
+    TickType_t t1 = xTaskGetTickCount();
     for (int i = 0; i < MAX31856_QUANTITY; i++)
     {
-        thermo_temp_cj[i] = ((int16_t)thermocouple_read_coldjunction(&TANWA_hardware.thermocouple[i]));
         thermo_temp[i] = ((int16_t)thermocouple_read_temperature(&TANWA_hardware.thermocouple[i]));
-
-       // ESP_LOGI(TAG, "thermo_temp_cj[%d] = : %d", i, thermo_temp_cj[i]);
-       // ESP_LOGI(TAG, "thermo_temp[%d] = : %d", i, thermo_temp[i]);
+        ESP_LOGI(TAG, "thermo_temp[%d] = : %d", i, thermo_temp[i]);
     }
+    TickType_t t2 = xTaskGetTickCount();
 
     // Overwrite the queues with the latest data
-    xQueueOverwrite(ThermoTemp_queue_cj, &thermo_temp_cj);
-    xQueueOverwrite(ThermoTemp_queue, &thermo_temp);
-
-    ESP_LOGI(TAG, "MEASURED THERMOCOUPLES");
+   // xQueueOverwrite(ThermoTemp_queue, &thermo_temp);
+    uint32_t elapsed_time_ms = (t2 - t1) * portTICK_PERIOD_MS;
+    ESP_LOGI(TAG, "MEASURED THERMOCOUPLES, taken time = %d ms\n", elapsed_time_ms);
 
     return ESP_OK;
 }
+
 
 /**
  * @brief function that measures pressure and sends it to queue
@@ -46,7 +44,7 @@ esp_err_t measure()
 esp_err_t measure_pressure()
 {
     ESP_LOGI(TAG, "MEASURING PRESSURE");
-
+    TickType_t t1 = xTaskGetTickCount();
     float pressure[PRESSURE_DRIVER_SENSOR_COUNT] = {0};
 
     // Measure pressure from each sensor
@@ -68,8 +66,9 @@ esp_err_t measure_pressure()
    // {
    //     ESP_LOGI(TAG, "PRESSURE[%d] = : %d", i, pressure_parsed[i]);
    // }
-
-    ESP_LOGI(TAG, "MEASURED PRESSURE");
+    TickType_t t2 = xTaskGetTickCount();
+    uint32_t elapsed_time_ms = (t2 - t1) * portTICK_PERIOD_MS;
+    ESP_LOGI(TAG, "MEASURED PRESSURE, taken time = %d ms\n", elapsed_time_ms);
 
     return ESP_OK;
 }
@@ -173,7 +172,7 @@ void data_handle_task(void *pvParameters)
         //}
         //ESP_LOGI(TAG,"TMP1075 TEMP IS : %f", temperature_celsius[0]);
 
-        vTaskDelayUntil(&xLastTime, pdMS_TO_TICKS(100));
+        vTaskDelayUntil(&xLastTime, pdMS_TO_TICKS(10));
     }
 }
 /**
@@ -200,6 +199,6 @@ void stop_data_task(void)
  */
 void run_data_handling_task(void)
 {
-    xTaskCreatePinnedToCore(data_handle_task, "data_handle_task", 4096, NULL, 1,
+    xTaskCreatePinnedToCore(data_handle_task, "data_handle_task", 4096, NULL, 19,
                             &data_handle_handle, 0);
 }

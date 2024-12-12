@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "TANWA_FLC",
-    "project_version":    "43bb93c-dirty",
+    "project_version":    "158356a-dirty",
     "project_path":       "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC",
     "idf_path":           "C:/Users/Matteo/esp/v5.2.1/esp-idf",
     "build_dir":          "C:/Users/Matteo/Desktop/TANWA/TANWA_FLC/build",

@@ -83,12 +83,11 @@ void send_status(void)
 
     float temperature_celsius[TMP1075_QUANTITY] = {0};
     int16_t temp_parsed[TMP1075_QUANTITY] = {0};
-    uint8_t data[8] = {0}; // Full 8-byte array to match tx_msg.data_length_code
+    uint8_t data[8] = {0};
 
     uint16_t status = get_status();
     memcpy(tx_msg.data, &status, sizeof(status));
 
-    // Read temperature in Celsius
     for (int i = 0; i < TMP1075_QUANTITY; i++)
     {
         if (tmp1075_get_temp_celsius(&TANWA_hardware.tmp1075[i], &temperature_celsius[i]) != ESP_OK)
@@ -121,14 +120,11 @@ void send_status(void)
         
     }
 
-    // manually input//insert_int16_t_into_uint8_array(&temp_parsed[0], data, 2);
-
     tx_msg.data_length_code = 8; // Full length
 
-    // Copy the data array into the tx_msg.data
+
     memcpy(tx_msg.data, data, tx_msg.data_length_code);
 
-    // Transmit the message
     if (twai_transmit(&tx_msg, pdMS_TO_TICKS(100)) != ESP_OK)
     {
         ESP_LOGE(TAG, "TRANSMIT TEMP CELSIUS FAIL");
@@ -152,27 +148,25 @@ void send_data(void)
     int16_t temp_cj[MAX31856_QUANTITY] = {0};
 
     // RECIEVE FROM QUEUE
-    xQueueReceive(ThermoTemp_queue, &temp, 100);
+    xQueueReceive(ThermoTemp_queue, &temp, 50);
     printf("##########################################\n");
-    ESP_LOGI(TAG,"GOWNO[0] %d   GOWNO[1] %d     GOWNO[2] %d     GOWNO[3] %d\n", temp[0],data[1],data[2],data[3]);
+    ESP_LOGI(TAG,"TEMP [0] %d   TEMP[1] %d\n", temp[0],temp[1]);
     printf("##########################################\n");
-   // xQueueReceive(ThermoTemp_queue_cj, &temp_cj, 0); //not used
 
     //*INPUT TO FRAME
     int i = 0;
     while (i < MAX31856_QUANTITY)
     {
-    // Loop to insert int16_t values into the uint8_t array
     for (int j = 0; j < 4; j += 2)
     {
-        if (i >= MAX31856_QUANTITY)  // Make sure we don't go out of bounds
+        if (i >= MAX31856_QUANTITY)
             break;
         
         insert_int16_t_into_uint8_array(&temp[i], data, j);
-        i++;  // Move to the next int16_t value
+        i++;
     }
 
-    if (i >= MAX31856_QUANTITY)  // Double-check bounds to avoid overflow
+    if (i >= MAX31856_QUANTITY)
         break;
     }
     //*END INPUT TO FRAME
@@ -180,8 +174,7 @@ void send_data(void)
 
     memcpy(tx_msg.data, data, tx_msg.data_length_code);
 
-    // Transmit the message
-    if (twai_transmit(&tx_msg, pdMS_TO_TICKS(100)) != ESP_OK)
+    if (twai_transmit(&tx_msg, pdMS_TO_TICKS(10)) != ESP_OK)
     {
         ESP_LOGE(TAG, "TRANSMIT ThermoCouple FAIL");
         return;
@@ -202,7 +195,7 @@ void send_data_pressure(void)
     uint8_t data[8] = {0};
     int16_t pressure[4] = {0};
 
-    xQueueReceive(PressureSens, &pressure, 100);
+    xQueueReceive(PressureSens, &pressure, 50);
     
     printf("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
     ESP_LOGI(TAG,"PRESSURE[0] %d   PRESSURE[1] %d     PRESSURE[2] %d     PRESSURE[3] %d\n", pressure[0],pressure[1],pressure[2],pressure[3]);
@@ -212,17 +205,16 @@ void send_data_pressure(void)
     int i = 0;
     while (i < PRESSURE_DRIVER_SENSOR_COUNT)
     {
-    // Loop to insert int16_t values into the uint8_t array
+    
     for (int j = 0; j < 8; j += 2)
     {
-        if (i >= PRESSURE_DRIVER_SENSOR_COUNT)  // Make sure we don't go out of bounds
+        if (i >= PRESSURE_DRIVER_SENSOR_COUNT)
             break;
         
         insert_int16_t_into_uint8_array(&pressure[i], data, j);
-        i++;  // Move to the next int16_t value
+        i++;
     }
-
-    if (i >= PRESSURE_DRIVER_SENSOR_COUNT)  // Double-check bounds to avoid overflow
+    if (i >= PRESSURE_DRIVER_SENSOR_COUNT)
         break;
     }
 
@@ -236,7 +228,7 @@ void send_data_pressure(void)
 
     
     // Transmit the message
-    if (twai_transmit(&tx_msg, pdMS_TO_TICKS(100)) != ESP_OK)
+    if (twai_transmit(&tx_msg, pdMS_TO_TICKS(50)) != ESP_OK)
     {
         ESP_LOGE(TAG, "TRANSMIT ThermoCouple FAIL");
         return;
@@ -249,7 +241,7 @@ void update_state()
     tx_msg.identifier = CAN_FLC_TX_BEACON;
     tx_msg.data_length_code = 8;
 
-        if (twai_transmit(&tx_msg, pdMS_TO_TICKS(100)) != ESP_OK)
+        if (twai_transmit(&tx_msg, pdMS_TO_TICKS(50)) != ESP_OK)
         {
         ESP_LOGE(TAG, "&&&&&&&&&&&&&&&TRANSMIT Beacon FAIL&&&&&&&&&&&&&&&&&&&");
         return;
@@ -327,11 +319,12 @@ void can_task(void *pvParameters)
 
          if ((current_tick_count - xLastWakeTime) >= update_time)
         {
+            monitor_twai_status();
             ESP_LOGI(TAG,"&&&&&&&&&&&&&&&Update_state&&&&&&&&&&&&&&&");
             update_state();
             xLastWakeTime = current_tick_count;
         }
-
+        
         vTaskDelayUntil(&xLastWakeTime, pdMS_TO_TICKS(CAN_TASK_DEFAULT_FREQ));
     }
     vTaskDelete(NULL);
