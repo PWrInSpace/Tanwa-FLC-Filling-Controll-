@@ -130,7 +130,7 @@ void max31856_oneshot_temperature(spi_device_handle_t spi_handle, uint8_t cs_pin
     val &= ~MAX31856_CR0_AUTOCONVERT;
     val |= MAX31856_CR0_1SHOT;
     max31856_write_register(spi_handle, cs_pin, MAX31856_CR0_REG, val);
-    vTaskDelay(20 / portTICK_PERIOD_MS);
+    vTaskDelay(5 / portTICK_PERIOD_MS);
 }
 
 void thermocouple_set_type(max31856_cfg *max31856, max31856_thermocoupletype_t tc_type) {

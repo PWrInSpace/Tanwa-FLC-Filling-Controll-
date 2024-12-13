@@ -14,7 +14,7 @@
  */
 esp_err_t measure()
 {
-    ESP_LOGI(TAG, "MEASURING TEMPERATURES");
+   // ESP_LOGI(TAG, "MEASURING TEMPERATURES");
     
     int16_t thermo_temp[MAX31856_QUANTITY] = {0};
 
@@ -23,14 +23,15 @@ esp_err_t measure()
     for (int i = 0; i < MAX31856_QUANTITY; i++)
     {
         thermo_temp[i] = ((int16_t)thermocouple_read_temperature(&TANWA_hardware.thermocouple[i]));
-        ESP_LOGI(TAG, "thermo_temp[%d] = : %d", i, thermo_temp[i]);
+      //  ESP_LOGI(TAG, "thermo_temp[%d] = : %d", i, thermo_temp[i]);
     }
     TickType_t t2 = xTaskGetTickCount();
-
+    thermo_temp[0] = 15;
+    thermo_temp[1] = 25;
     // Overwrite the queues with the latest data
-   // xQueueOverwrite(ThermoTemp_queue, &thermo_temp);
+    xQueueOverwrite(ThermoTemp_queue, &thermo_temp);
     uint32_t elapsed_time_ms = (t2 - t1) * portTICK_PERIOD_MS;
-    ESP_LOGI(TAG, "MEASURED THERMOCOUPLES, taken time = %d ms\n", elapsed_time_ms);
+   // ESP_LOGI(TAG, "MEASURED THERMOCOUPLES, taken time = %d ms\n", elapsed_time_ms);
 
     return ESP_OK;
 }
@@ -43,7 +44,7 @@ esp_err_t measure()
  */
 esp_err_t measure_pressure()
 {
-    ESP_LOGI(TAG, "MEASURING PRESSURE");
+    //ESP_LOGI(TAG, "MEASURING PRESSURE");
     TickType_t t1 = xTaskGetTickCount();
     float pressure[PRESSURE_DRIVER_SENSOR_COUNT] = {0};
 
@@ -61,14 +62,15 @@ esp_err_t measure_pressure()
     // Overwrite the queue with the latest set of pressure data
     xQueueOverwrite(PressureSens, &pressure_parsed);
 
-    // Log each pressure reading
-   // for (int i = 0; i < PRESSURE_DRIVER_SENSOR_COUNT; i++)
-   // {
-   //     ESP_LOGI(TAG, "PRESSURE[%d] = : %d", i, pressure_parsed[i]);
-   // }
+  //  Log each pressure reading
+  //!DOESNT WORK PROPERLY WITHOUT LOGS UNDER
+//    for (int i = 0; i < PRESSURE_DRIVER_SENSOR_COUNT; i++)
+//    {
+//       ESP_LOGI(TAG, "PRESSURE[%d] = : %d", i, pressure_parsed[i]);
+//    }
     TickType_t t2 = xTaskGetTickCount();
     uint32_t elapsed_time_ms = (t2 - t1) * portTICK_PERIOD_MS;
-    ESP_LOGI(TAG, "MEASURED PRESSURE, taken time = %d ms\n", elapsed_time_ms);
+    //ESP_LOGI(TAG, "MEASURED PRESSURE, taken time = %d ms\n", elapsed_time_ms);
 
     return ESP_OK;
 }
@@ -86,37 +88,18 @@ void decode_command(can_flc_commands_t *cmd)
     }
     switch (*cmd)
     {
-    case CAN_FLC_RX_GET_DATA:
-    {
-        ESP_LOGI(TAG, "GET_DATA CMD");
-        if (measure() != ESP_OK)
-        {
-            set_status(FLC_STATUS_ERROR);
-        }
-        set_status(FLC_STATUS_OK);
-    }
-    break;
-
+   
     case CAN_FLC_RX_SOFT_RESET:
     {
         esp_restart();
     }
     break;
 
-    case CAN_FLC_RX_GET_DATA_PRESSURE:
-    {
-        ESP_LOGI(TAG, "GET_DATA PRESSURE CMD");
-        if (measure_pressure() != ESP_OK)
-        {
-            set_status(FLC_STATUS_ERROR);
-        }
-        set_status(FLC_STATUS_OK);
-    }
-    break;
 
     default:
     {
-        ESP_LOGE(TAG, "Unknown command");
+        __asm__ __volatile__("nop");
+        // ESP_LOGE(TAG, "Unknown command");
     }
     break;
     }
@@ -132,47 +115,32 @@ void data_handle_task(void *pvParameters)
     can_flc_commands_t command;
     TickType_t xLastTime = xTaskGetTickCount();
     float temperature_celsius[TMP1075_QUANTITY] = {0};
+    UBaseType_t messages;
     while (1)
     {
-        command = CAN_FLC_RX_GET_DATA;
-        if (xQueueSend(CMDS_queue, &command, 100) != pdTRUE)
+        //ESP_LOGI(TAG, "GET_DATA CMD");
+        if (measure() != ESP_OK)
         {
-            ESP_LOGE(TAG, "Failed to run get data command");
+            set_status(FLC_STATUS_ERROR);
         }
-        //vTaskDelayUntil(&xLastTime, pdMS_TO_TICKS(1000));
+        set_status(FLC_STATUS_OK);
 
 
-
-        command = CAN_FLC_RX_GET_DATA_PRESSURE;
-        if (xQueueSend(CMDS_queue, &command, 100) != pdTRUE)
+        //ESP_LOGI(TAG, "GET_DATA PRESSURE CMD");
+        if (measure_pressure() != ESP_OK)
         {
-            ESP_LOGE(TAG, "Failed to run get data pressure command");
+            set_status(FLC_STATUS_ERROR);
         }
-
-
-
-
-        if (xQueueReceive(CMDS_queue, &command, 100) != pdTRUE)
+        set_status(FLC_STATUS_OK);
+        messages = uxQueueMessagesWaiting(PressureSens);
+        if ((xQueueReceive(CMDS_queue, &command, 0) != pdTRUE) && (messages >1))
         {
+            ESP_LOGE(TAG, "Messages in queue: %d", messages);
             ESP_LOGE(TAG, "Error while recieving command from queue");
         }
         decode_command(&command);
 
-        if (xQueueReceive(CMDS_queue, &command, 100) != pdTRUE)
-        {
-            ESP_LOGE(TAG, "Error while recieving command from queue");
-        }
-        decode_command(&command);
-
-        //vTaskDelayUntil(&xLastTime, pdMS_TO_TICKS(1000));
-        
-        //if (tmp1075_get_temp_celsius(&TANWA_hardware.tmp1075[0], &temperature_celsius[0]) != ESP_OK)
-        //{
-        //    ESP_LOGE(TAG, "TEMP READ CELSIUS FAIL");
-        //}
-        //ESP_LOGI(TAG,"TMP1075 TEMP IS : %f", temperature_celsius[0]);
-
-        vTaskDelayUntil(&xLastTime, pdMS_TO_TICKS(10));
+        vTaskDelayUntil(&xLastTime, pdMS_TO_TICKS(25));
     }
 }
 /**
@@ -199,6 +167,6 @@ void stop_data_task(void)
  */
 void run_data_handling_task(void)
 {
-    xTaskCreatePinnedToCore(data_handle_task, "data_handle_task", 4096, NULL, 19,
+    xTaskCreatePinnedToCore(data_handle_task, "data_handle_task", 4096, NULL, 5,
                             &data_handle_handle, 0);
 }

@@ -25,7 +25,7 @@
 #define CAN_TASK_STACK_SIZE 4096
 #define CAN_TASK_PRIORITY 9
 #define CAN_TASK_CORE 1
-#define CAN_TASK_DEFAULT_FREQ 50
+#define CAN_TASK_DEFAULT_FREQ 100
 
 #define TAG "TWAI Listen Only"
 
@@ -148,6 +148,14 @@ void send_data(void)
     int16_t temp_cj[MAX31856_QUANTITY] = {0};
 
     // RECIEVE FROM QUEUE
+    UBaseType_t messages = uxQueueMessagesWaiting(ThermoTemp_queue);
+ESP_LOGI(TAG, "Messages in queue: %d", messages);
+
+if (messages == 0) {
+    ESP_LOGI(TAG, "QUEUE EMPTY THERMOCOUPLE");
+    return;
+} 
+
     xQueueReceive(ThermoTemp_queue, &temp, 50);
     printf("##########################################\n");
     ESP_LOGI(TAG,"TEMP [0] %d   TEMP[1] %d\n", temp[0],temp[1]);
@@ -193,7 +201,15 @@ void send_data_pressure(void)
     tx_msg.data_length_code = 8;
 
     uint8_t data[8] = {0};
-    int16_t pressure[4] = {0};
+    int16_t pressure[4] = {0};  
+
+    UBaseType_t messages = uxQueueMessagesWaiting(PressureSens);
+ESP_LOGI(TAG, "Messages in queue: %d", messages);
+
+if (messages == 0) {
+    ESP_LOGI(TAG, "QUEUE EMPTY PRESSURE");
+    return;
+} 
 
     xQueueReceive(PressureSens, &pressure, 50);
     
@@ -230,7 +246,7 @@ void send_data_pressure(void)
     // Transmit the message
     if (twai_transmit(&tx_msg, pdMS_TO_TICKS(50)) != ESP_OK)
     {
-        ESP_LOGE(TAG, "TRANSMIT ThermoCouple FAIL");
+        ESP_LOGE(TAG, "TRANSMIT Pressure FAIL");
         return;
     }
 }
@@ -241,7 +257,7 @@ void update_state()
     tx_msg.identifier = CAN_FLC_TX_BEACON;
     tx_msg.data_length_code = 8;
 
-        if (twai_transmit(&tx_msg, pdMS_TO_TICKS(50)) != ESP_OK)
+        if (twai_transmit(&tx_msg, 0) != ESP_OK)
         {
         ESP_LOGE(TAG, "&&&&&&&&&&&&&&&TRANSMIT Beacon FAIL&&&&&&&&&&&&&&&&&&&");
         return;
@@ -309,12 +325,15 @@ void can_task(void *pvParameters)
     TickType_t xLastWakeTime = xTaskGetTickCount();
     const TickType_t update_time = pdMS_TO_TICKS(500);
     while (true)
+        
+    while (true)
     {
-        twai_message_t rx_msg;
+             twai_message_t rx_msg;
         if (twai_receive(&rx_msg, pdMS_TO_TICKS(100)) == ESP_OK)
         {
             can_decode_message(rx_msg);
         }
+
         TickType_t current_tick_count = xTaskGetTickCount();
 
          if ((current_tick_count - xLastWakeTime) >= update_time)
@@ -325,7 +344,7 @@ void can_task(void *pvParameters)
             xLastWakeTime = current_tick_count;
         }
         
-        vTaskDelayUntil(&xLastWakeTime, pdMS_TO_TICKS(CAN_TASK_DEFAULT_FREQ));
+        vTaskDelayUntil(&xLastWakeTime, pdMS_TO_TICKS(100));
     }
     vTaskDelete(NULL);
 }

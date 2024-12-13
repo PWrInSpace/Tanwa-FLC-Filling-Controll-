@@ -70,11 +70,11 @@ void app_init_task(void *pvParameters)
   {
     ESP_LOGI(TAG1, "### RTOS util initialization success ###");
   }
-
+  run_data_handling_task();
   run_can_task();
 
   vTaskDelay(pdMS_TO_TICKS(1000));
-  run_data_handling_task();
+  
   //run_check_stack_usage_task();
   ESP_LOGI(TAG1, "### App initialization finished ###");
   vTaskDelete(NULL);
